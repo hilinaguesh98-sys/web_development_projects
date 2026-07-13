@@ -15,7 +15,7 @@ for name,balance in name_and_balance:
     tier=get_tier(balance)
     balance_with_tax=apply_tax(balance)
     if tier=="premium":
-        print(f"congrtulation {name} you are a premium customer")
+        print(f"congratulation {name} you are a premium customer")
     print(f"{name}:{tier}| balance:{balance}|with tax:{balance_with_tax}ETB")
     total_customers+=1
     total_balance+=balance
