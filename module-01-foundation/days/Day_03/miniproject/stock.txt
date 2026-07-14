@@ -1,0 +1,4 @@
+paracetamol,26
+asprin,46
+insulin,70
+amoxicillin,40
