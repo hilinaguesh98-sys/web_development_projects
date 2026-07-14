@@ -1,0 +1,10 @@
+hilina, 1000
+bereket, 800
+abrham, 700
+filimon, 500
+eden, 500
+abel, 400
+seble, 400
+dave, 300
+jhon, 200
+rahel, 200
