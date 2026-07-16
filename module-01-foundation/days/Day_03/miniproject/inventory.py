@@ -1,6 +1,6 @@
 stock={}
 try:
-    with open("sq6-hilina-guesh/module-01-foundation/days/Day_03/miniproject/stock.txt","r") as f:
+    with open("stock.txt","r") as f:
         for line in f:
             item, quantity =line.strip().split(",")
             stock[item]=int(quantity)
@@ -21,7 +21,7 @@ if low_stock:
         print(item)
 else:
     print("there is no low stocked item")
-with open("sq6-hilina-guesh/module-01-foundation/days/Day_03/miniproject/stock.txt","w") as f:
+with open("stock.txt","w") as f:
     for item,quantity in stock.items():
         f.write(f"{item},{quantity}\n")
 print("stock has been successfully saved")
