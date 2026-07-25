@@ -2,7 +2,17 @@ from account import  savingaccount
 from bank import SMSAlert, AuditLogger, accountfactory
 from registry import AccountRegistry
 from bank_model import branch
+
+
 class BankManagementSystem:
+    account_counter = 1
+
+    @classmethod
+    def generate_account_number(cls):
+        account_number = int(f"1000234124{cls.account_counter}")
+        cls.account_counter += 1
+        return account_number
+
     def __init__(self):
         self.registry = AccountRegistry()
         self.transfers = {}
@@ -59,13 +69,7 @@ class BankManagementSystem:
             print("Invalid choice.")
             return
         owner = input("Owner name: ").strip()
-        
-        try:
-            number = int(input("Account number: ").strip())
-        except ValueError:
-            print("Invalid account number.")
-            return
-        
+
         try:
             balance = float(input("Initial balance: ").strip())
         except ValueError:
@@ -88,6 +92,8 @@ class BankManagementSystem:
         except ValueError:
             print("Invalid input.")
             return
+        number = self.generate_account_number()
+
         try:
             acc = accountfactory.create_account(acc_type, owner, number, balance)
             acc.subscriber(self.sms)
