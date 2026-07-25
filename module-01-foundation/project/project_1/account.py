@@ -1,6 +1,6 @@
 class bankconfig:
     _instance=None
-    def __new__class(cls):
+    def __new__(cls):
         if cls._instance is None:
             cls._instance=super().__new__(cls)
             cls._instance.interst_rate=0.05
@@ -15,12 +15,22 @@ class SMSAlert(observer):
 class AuditLogger(observer):
     def update(self,message):
         print(f"auditlogger: {message}")
+class accountfactory:
+    @staticmethod
+    def create_account(kind, owner, number, balance=0):
+        if kind.lower() == "saving":
+            return savingaccount(owner, number, balance)
+        elif kind.lower() == "current":
+            return currentaccount(owner, number, balance)
+        else:
+            raise ValueError("invalid account type")
 class account:
     def __init__(self,owner,number,balance=0):
         self.owner=owner
         self.number=number
         self.__balance=balance
         self.observers= []
+        self.history=[]
     @property
     def balance(self):
         return self.__balance
@@ -34,16 +44,29 @@ class account:
         if amount<=0:
             raise ValueError("amount must be positive")
         self._account__balance+=amount
+        self.history.append(("deposit", amount))
         self._notify(f"{self.owner} deposited {amount} ETB")
     def withdraw(self,amount):
          if amount<=0:
             raise ValueError("amount must be positive")
-         if self._account__balance<=0:
+         if amount> self._account__balance:
             raise ValueError("Insufficient balance")
          self._account__balance-=amount
+         self.history.append(("withdraw", amount))
          self._notify(f"{self.owner} withdrew {amount} ETB")
     def statement(self):
         print(f"{self.owner} : {self.number} : {self.__balance:2f} ETB")
+    def undo_last(self):
+        if not self.history:
+            print("no transaction to undo")
+            return
+        transaction,amount=self.history.pop()
+        if transaction=="deposit":
+            self._account__balance-=amount
+            print(f"undo deposit of {amount} ETB")
+        elif transaction=="withdraw":
+            self._account__balance+=amount
+            print(f"undo withdraw of {amount} ETB")
 class savingaccount(account):
     def __init__(self, owner, number, balance=0,rate=0.05):
         super().__init__(owner, number, balance)
@@ -55,6 +78,7 @@ class savingaccount(account):
         print(f"interest added={interest} ETB")
     def statement(self):
         return super().statement()
+
 class currentaccount(account):        
     def __init__(self, owner, number, balance=0,overdraft=1000):
         super().__init__(owner, number, balance)
@@ -69,15 +93,5 @@ class currentaccount(account):
         self._notify(f"{self.owner} withdrew {amount} ETB")
     def statement(self):
         return super().statement()
-class accountfactory:
-    @staticmethod
-    def create_account(kind, owner, number, balance=0):
-        if kind.lower() == "saving":
-            return savingaccount(owner, number, balance)
-        elif kind.lower() == "current":
-            return currentaccount(owner, number, balance)
-        else:
-            raise ValueError("invalid account type")
 
-        
-    
+

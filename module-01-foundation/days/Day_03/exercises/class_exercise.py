@@ -19,6 +19,5 @@ try:
         for name, total in sorted_customers:
             report.write(f"{name}: {total}\n")
 
-    print("\nReport saved to report.txt")
 except FileNotFoundError:
     print("the file is not found")
