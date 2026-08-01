@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="Register for Ethio Telecom services online by providing your personal information through this registration form">
+    <title>Habesha Eastery</title>
+</head>
+<body>
+     <h1>Reservation Table</h1><br>
+    <from action="/register" method="post">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email Adress</label>
+        <input type="text" id="email" name="email"
+        placeholder="hilinaguesh@gmail.com" required><br><br>
+         <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" 
+        pattern="^\+251\d{9}"
+        placeholder="+251953158497" required><br><br>
+         <label for="date">Reservation Date</label>
+        <input type="number" id="date" name="date" 
+         placeholder="DD/MM/YY"  required><br><br>
+        <label for="party">Party Size</label>
+        <input type="number" id="party" name="party" 
+        min="1" max="15"  required><br><br>
+        <label for="special">Special Requests</label>
+        <input type="text" id="special" name="special"
+        rows="4" cols="30" placeholder="Any special requests"   required><br><br>
+
+        <button type="submit">Reserve Table</button>
+    </from><br><br>
+    <h1>Our Menu</h1>
+    <table border="1">
+        <caption>Habesha Eastry Menu </caption>
+        <thead>
+            <tr><th scope="col">Dish</th>
+                <th scope="col">Discription</th>
+                <th scope="col">Price ETB</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><th scope="col">Shiro Wat</th>
+                <th scope="col">Traditional chickpea stew served with injera</th>
+                <th scope="col">300</th>
+            </tr>
+            <tr><th scope="col">Tihlo</th>
+                <th scope="col">Traditional Tigrayan barley dumplings served with spicy sauce</th>
+                <th scope="col">400</th>
+            </tr>
+            <tr><th scope="col">Hilbet</th>
+                <th scope="col">A traditional Ethiopian legume dish made from blended fava beans and lentils, 
+                    served with injera.</th>
+                <th scope="col">500</th>
+            </tr>
+            </tbody>
+    </table>
+   <h2>Restorant Location</h2>  
+   <figure>
+    <img src="Assets/shiro wat.png" alt="Traditional Ethiopian shiro Wat dish served with injera" width="500">
+    <figcaption> Traditional Ethiopian cuisine at Habesha Eastry</figcaption>
+    
+   </figure>
+   <iframe 
+src="https://www.google.com/maps?q=Addis+Ababa+Ethiopia&output=embed"
+width="600"
+height="450"
+title="Map showing Habesha Eastry location in Addis Ababa"
+loading="lazy">
+</iframe>
+</main>
+<footer><p>&copy; 2026 Habesha Eastry. All rights reserved.</p>
+
+</footer>
+</body>
+
+</html>
