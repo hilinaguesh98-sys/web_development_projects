@@ -1,0 +1,75 @@
+
+:root {--brand: hsl(309, 68%, 33%);
+    --brand-hover: hsl(295, 35%, 70%);
+    --background: hsla(206, 6%, 76%, 0.621);
+    --space: 16px;
+    --radius: 12px;
+}
+* {
+    box-sizing: border-box;}
+body {
+
+    font-family: "Inter", sans-serif;
+    line-height: 1.6;
+    background: var(--background);
+    min-height: 100vh;
+    }
+.card {
+
+    max-width: 360px;
+   margin: 40px auto;
+    padding: var(--space);
+    border: 1px solid #E2E8F0;
+    border-radius: var(--radius);
+    background: white;
+    position: relative;
+
+}
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--brand);
+    border-radius: var(--radius) var(--radius) 0 0;
+
+}
+.card h1 {
+    margin-top: 15px;
+    font-size: 28px;
+     color: var(--brand);
+    }
+
+.card h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+.location {
+
+    font-weight: bold;
+}
+
+.button {
+    background: var(--brand);
+    color: white;
+    border: none;
+    padding: var(--space);
+    border-radius: var(--radius);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:hover {
+background: var(--brand-hover);
+
+}
+.button:focus {
+ outline: 3px solid var(--brand-hover);
+}
