@@ -1,0 +1,82 @@
+:root{
+    --primary-color:black;
+    --secondary-color: white;
+    --spacing: 16px;
+    --font: Arial;
+}
+button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: var(--spacing);
+    font-family: var(--font);
+    border: none;
+}
+/* 2 */
+/* part 1 */
+.card {
+    width:300px;
+    padding:24px;
+    border:2px solid black;
+    box-sizing:content-box;
+}
+
+/* part 2 */
+.card {
+    width: 300px;
+    padding: 24px;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
+/* 3 */
+p {color:blue;}
+.name {color:green;}
+#id {color:red;}
+/* 4 */
+table{width: 100%;
+    border-collapse: collapse;}
+th{background-color: green;
+    color: white;
+    padding: 12px;}
+
+td{padding: 12px;
+    border: 1px solid gray;}
+tr:nth-child(even){
+    background-color: rgb(244, 238, 238);}
+
+/* 5 */
+/* hex
+  blue #0000FF
+  green  #00CC00
+  red  #00CC00
+  rgb()
+  blue rgb(0, 0, 255)
+  green  rgb(0, 204, 0)
+  red  rgb(204, 0, 0)
+  */
+button{
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    margin: 10px;
+    
+}
+.blue {
+    background-color:hsl(240, 100%, 50%);
+}
+.green {
+    background-color: hsl(120, 100%, 40%);
+}
+.red {
+    background-color: hsl(0, 100%, 40%);
+}
+.blue:hover {
+    background-color: hsl(240, 100%, 80%);
+}
+.green:hover {
+    background-color: hsl(120, 100%, 80%);
+}
+.red:hover {
+    background-color: hsl(0, 100%, 80%);
+}
+
+
