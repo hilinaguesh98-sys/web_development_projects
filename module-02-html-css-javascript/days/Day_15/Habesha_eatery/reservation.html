@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habesha Eatery | Reservation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="page">
+
+    <nav class="navbar">
+        <h2 class="logo">Habesha Eatery</h2>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a class="reserve-btn" href="reservation.html">Reserve</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="reserve">
+            <h1>Reserve Table</h1>
+            <p style="text-align:center; margin-bottom:30px;">
+                Complete the form below to reserve your table.
+                We look forward to serving you!
+            </p>
+            <form>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required >
+                <input type="tel" placeholder="Phone Number" required>
+                <input type="date" required>
+                <input type="time" required>
+                <input type="number" placeholder="Number of Guests" min="1" required>
+                <textarea rows="5" placeholder="Special Requests"></textarea>
+                <button type="submit"> Reserve Now</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>© 2026 Habesha Eatery. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
