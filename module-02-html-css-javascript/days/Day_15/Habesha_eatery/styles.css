@@ -21,8 +21,10 @@
 
 }
 html{
-    scroll-behavior:smooth;}
-body{ font-family:Arial, Helvetica, sans-serif;
+    scroll-behavior:smooth;
+}
+body{ 
+    font-family:Arial, Helvetica, sans-serif;
     background:var(--background);
     color:var(--text);
     line-height:1.6; 
@@ -119,7 +121,7 @@ img{
 .hero-buttons{
     display:flex;
     gap:20px;
-    flex-wrap:wrap;
+   
 }
 .hero-btn{
     display:inline-block;
@@ -135,9 +137,10 @@ img{
 }
 .about-preview,
 .contact-preview,
+.menu-preview,
 .about,
-.contact,
-.reserve{
+.contact
+{
     width:min(1100px,95%);
     margin:60px auto;
     background:white;
@@ -147,9 +150,10 @@ img{
 }
 .about-preview h2,
 .contact-preview h2,
+.menu-preview h2,
 .about h2,
-.contact h2,
-.reserve h2{
+.contact h2
+{
     color:var(--secondary);
     margin-bottom:20px;
     text-align:center;
