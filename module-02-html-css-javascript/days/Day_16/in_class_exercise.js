@@ -36,14 +36,3 @@ console.log(`The total payment is ${totalpayment}`);
 console.log(`the payment per person is ${paymentperperson}`);
 
 
-// while i was practicing javascript, i made a program that calculates restaurant bill with tip and transaction fee between 4 people. it was supposed to show the correct total and how much each person should pay but the calculation was wrong because the bill was stored as a string instead of a number.
-
-// The problem was by type conversion.i used typeof to check the value and realized it was a string so i fixed by converting it to a number with number() before calculating the total value. 
-
-// const bill = "3000";
-
-// const billAmount = Number(bill);
-
-// console.log(billAmount * 0.1);
-
-// after  that the program worked correctly this thought me to always  check the data type before doing calculations.
