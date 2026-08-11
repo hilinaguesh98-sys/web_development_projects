@@ -1,0 +1,11 @@
+import { transactions } from "./transactions.js";
+import { totalbytype,createrecipts,correcttransaction } from "./report.js";
+const totalcredit=totalbytype(transactions,"credit");
+const totaldebit=totalbytype(transactions,"debit");
+const receipts = createrecipts(transactions);
+const correctedtransaction = correcttransaction( transactions[0], 300 );
+console.log(`Total Credits: ${totalcredit} ETB`); 
+console.log(`Total Debits: ${totaldebit} ETB`);
+receipts.forEach(receipt => { console.log(receipt); });
+console.log(correctedtransaction);
+console.log(transactions[0]);
