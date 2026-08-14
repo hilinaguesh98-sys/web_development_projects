@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Addis Market List</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <header class="hero">
+            <div>
+                <h1>Addis Market List</h1>
+            </div>
+        </header>
+        <section class="add-section">
+            <form id="add-form">
+                <div class="form-group item-field">
+                    <label for="name">Item Name</label>
+                    <input type="text" id="name" placeholder="Enter an item">
+                    <p id="name-error" class="error-message"></p>
+                </div>
+                <div class="form-group price-field">
+                    <label for="price">Price (ETB)</label>
+                    <input type="number" id="price" min="0.01" step="0.01">
+                    <p id="price-error" class="error-message"></p>
+                </div>
+                <div class="form-group quantity-field">
+                    <label for="quantity">Qty</label>
+                    <input type="number" id="quantity" min="1" value="1">
+                </div>
+                <button type="submit" id="add-button"> Add Item</button>
+            </form>
+        </section>
+        <section class="tools">
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Search your items">
+            </div>
+            <select id="filter">
+                <option value="all">All Items</option>
+                <option value="remaining">Remaining</option>
+                <option value="bought">Bought</option>
+            </select>
+        </section>
+        <section class="list-section">
+            <div class="list-top">
+                <div>
+                    <h2>Your Items</h2>
+                    <p id="item-count">0 items</p>
+                </div>
+                <div class="actions">
+                    <button id="clear-bought" class="secondary-button"> Clear Bought</button>
+                    <button id="clear-all" class="danger-button">Clear All</button>
+                </div>
+            </div>
+            <ul id="list"></ul>
+            <div id="empty-message">
+                <h3>Your shopping list is empty</h3>
+                <p>
+                    Add something you need from the market.</p>
+                </div>
+            </section>
+            <section class="progress-section">
+                <div class="progress-header">
+                    <span>Shopping progress</span>
+                    <strong id="progress-text">0%</strong>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress"></div>
+                 </div>
+                </section>
+                <section class="stats">
+                    <div class="stat-card">
+                        <h3>Total Items</h3>
+                        <strong id="total-items">0</strong>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Bought</h3>
+                        <strong id="bought-items">0</strong></div>
+                        <div class="stat-card">
+                            <h3>Remaining</h3>
+                            <strong id="remaining-items">0</strong>
+                        </div>
+                        <div class="stat-card total-card">
+                            <h3>Total Cost</h3>
+                            <strong><span id="total">0.00</span> ETB</strong></div>
+                        </section>
+                    </main>
+                    <script src="app.js"></script>
+                </body>
+                </html>
