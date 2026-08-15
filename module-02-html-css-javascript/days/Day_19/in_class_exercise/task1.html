@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercise 1: DOM Detective</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        background: #f8f9fa;
+      }
+      .menu-item {
+        padding: 12px;
+        margin: 8px 0;
+        background: white;
+        border-radius: 8px;
+        border-left: 4px solid #6c5ce7;
+        cursor: pointer;
+      }
+      .menu-item:hover {
+        background: #f1f2f6;
+      }
+      .price {
+        color: #6c5ce7;
+        font-weight: bold;
+        float: right;
+      }
+      #total-items {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #2d3436;
+        margin-top: 20px;
+        padding: 10px;
+        background: #dfe6e9;
+        border-radius: 8px;
+      }
+      .highlight {
+        background: #ffeaa7 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🍽 Habesha Eatery Menu</h1>
+
+    <div id="menu">
+      <div class="menu-item" data-id="1" data-category="breakfast">
+        <span class="name">Firfir</span>
+        <span class="price">$8.00</span>
+      </div>
+      <div class="menu-item" data-id="2" data-category="breakfast">
+        <span class="name">Genfo</span>
+        <span class="price">$6.00</span>
+      </div>
+      <div class="menu-item" data-id="3" data-category="lunch">
+        <span class="name">Doro Wat</span>
+        <span class="price">$15.00</span>
+      </div>
+      <div class="menu-item" data-id="4" data-category="lunch">
+        <span class="name">Kitfo</span>
+        <span class="price">$18.00</span>
+      </div>
+      <div class="menu-item" data-id="5" data-category="dinner">
+        <span class="name">Tibs</span>
+        <span class="price">$12.00</span>
+      </div>
+    </div>
+
+    <div id="total-items">Total Items: 5</div>
+
+    <script>
+      // ===== YOUR CODE GOES HERE =====
+      // Complete the tasks below using JavaScript
+
+      console.log("🔍 DOM Detective - Start Here!");
+
+      // TASK 1: Select the h1 and log its text
+      const h1 = document.querySelector("h1");
+      console.log(`H1 Content ${h1.textContent}`);
+
+      // Write your code here
+
+      // TASK 2: Select all menu items using querySelectorAll
+      // Write your code here
+      const menu = document.querySelectorAll(".menu-item");
+      
+      // TASK 3: Get the first menu item and log its text content
+      // Write your code here
+      const firstitem=menu[0]
+      console.log(firstitem.textContent);
+
+      // TASK 4: Get the price of Doro Wat using dataset
+      const dorowat=document.querySelector('[data-id="3"]');
+      const dorowatprice=document.querySelector(".price");
+      console.log(`dorowat price ${dorowatprice.textContent}`);
+    
+      // TASK 5: Count how many items are in the breakfast category
+      // Write your code here
+      const breakfastitems = document.querySelectorAll('[data-category="breakfast"]');
+      console.log(` ${breakfastitems.length}`);
+
+      // TASK 6: Calculate total price of all items
+      // Write your code here
+      let totalPrice = 0;
+      menu.forEach(function(item) {
+        const price = item.querySelector(".price").textContent;
+        const number = parseFloat(price.replace("$", ""));
+         totalPrice += number;});
+         console.log(`Total Price ${totalPrice}`);
+
+      // TASK 7: Find the parent of the first menu item
+      // Write your code here
+      const parent = firstitem.parentElement;
+      console.log(`${parent.id}`);
+
+      console.log("✅ Tasks completed! Check your answers.");
+    </script>
+  </body>
+</html>
