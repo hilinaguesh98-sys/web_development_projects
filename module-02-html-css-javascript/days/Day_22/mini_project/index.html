@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birr Watch · Live ETB Rates</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>Birr Watch</h1>
+      
+    </header>
+    <div id="status-banner" class="status-banner hidden"></div>
+
+    <main class="main-content">
+      <section class="card">
+        <h2>Currency Converter</h2>
+        <form id="converter-form">
+          <div class="form-group">
+            <label for="amount">Amount in ETB</label>
+            <input type="number" id="amount" placeholder="e.g. 1000" step="any" />
+            <span id="amount-error" class="error-msg"></span>
+          </div>
+          <div class="form-group">
+            <label for="currency">Target Currency</label>
+            <select id="currency" disabled></select>
+          </div>
+        </form>
+         <div id="conversion-result" class="result-box">
+          Enter an amount to see conversion.
+        </div>
+      </section>
+       <section class="card">
+        <div class="card-header">
+          <h2>Watchlist</h2>
+          <button id="add-watchlist-btn" type="button" class="btn btn-secondary" disabled>
+            + Add Current
+          </button>
+        </div>
+        <div id="watchlist-container" class="watchlist-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

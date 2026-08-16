@@ -59,14 +59,14 @@ button {
     padding: 16px;
     border: none;
     border-radius: 10px;
-    background: #4a90e2;
+    background:rgb(115, 219, 115);
     color: white;
     font-size: 22px;
     cursor: pointer;
 }
 
 button:hover {
-    background: #357abd;
+    background: green;
 }
 
 #error {

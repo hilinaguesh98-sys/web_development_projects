@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Birr Watch</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="status"></div>
+
+  <form id="convert-form">
+    <input type="text" id="amount-input" placeholder="Amount in ETB" />
+    <select id="currency-select"></select>
+    <button type="submit">Convert</button>
+  </form>
+
+  <div id="result"></div>
+
+  <div>
+    <h3>Watchlist</h3>
+    <button type="button" id="add-watchlist-btn">Add Selected to Watchlist</button>
+    <ul id="watchlist-ul"></ul>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -6,7 +6,10 @@ button.addEventListener("click",()=>{document.body.classList.toggle("dark");loca
 
 // 2
 function save(data){localStorage.setItem("signups",JSON.stringify(data));}
-function load(){try{return JSON.parse(localStorage.getItem("signups"))||[];}catch{return [];}}
+function load(){try{return JSON.parse(localStorage.getItem("signups"))||[];}
+catch{
+    return [];
+}}
 
 // 3
 const form=document.querySelector("#signup-form");
