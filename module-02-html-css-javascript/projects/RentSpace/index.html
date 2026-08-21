@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RentSpace - Find Your Dream Home</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page">
+    
+    <header class="header">
+      <nav class="navbar">
+        <a href="index.html" class="logo">
+          <img src="proporty-image/logo.jpg" alt="RentSpace logo">
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="site-navigation">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="favorites.html">Favorites</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><button id="theme-toggle" class="theme-toggle">🌙 Dark</button></li>
+        </ul>
+      </nav> 
+    </header>
+
+    <section class="hero" id="home">
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="proporty-image/home.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div>
+          <h1>Find a place you'll love to call home</h1>
+          <p>Discover houses, apartments, and villas for rent in your preferred location</p>
+        </div>
+
+        <div class="filter-section">
+          <div class="form-group">
+            <label for="search-input">Search Location or Keyword</label>
+            <input type="text" id="search-input" placeholder="e.g. Bole, Villa, Bright...">
+          </div>
+          <div class="form-group">
+            <label for="type-filter">Property Type</label>
+            <select id="type-filter">
+              <option value="">All Types</option>
+              <option value="villa">Villa</option>
+              <option value="apartment">Apartment</option>
+              <option value="studio apartment">Studio Apartment</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="location-filter">Neighborhood</label>
+            <select id="location-filter">
+              <option value="">All Locations</option>
+              <option value="Bole">Bole</option>
+              <option value="Kazanchis">Kazanchis</option>
+              <option value="CMC">CMC</option>
+              <option value="Summit">Summit</option>
+              <option value="Gerji">Gerji</option>
+              <option value="Saris">Saris</option>
+              <option value="Piassa">Piassa</option>
+              <option value="Megenagna">Megenagna</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Hayahulet">Hayahulet</option>
+              <option value="Lideta">Lideta</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+       
+    <div class="section-heading">
+        <h2>Available Properties</h2>
+        <p>Find a home that fits your lifestyle.</p>
+    </div>
+
+        
+      <section class="property-grid" id="property-grid">
+       
+      </section>
+    </main>
+  </div>
+  <footer class="site-footer">
+    <img src="proporty-image/logo2.jpg" alt="RentSpace Logo" class="footer-logo">
+  <p class="footer-text">&copy; 2026 RentSpace. All rights reserved.</p>
+</footer>
+
+  <script src="storage.js"></script>
+  <script src="nav.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

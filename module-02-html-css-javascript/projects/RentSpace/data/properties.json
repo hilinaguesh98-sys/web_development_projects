@@ -1,0 +1,291 @@
+[
+  {
+    "id": 1,
+    "title": "Modern 4-Bedroom Villa",
+    "description": "Spacious modern villa with a private compound, garden, and parking space.",
+    "price": 65000,
+    "type": "villa",
+    "location": "Bole",
+    "city": "Addis Ababa",
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "status": "approved",
+    "featured": true,
+    "landlordId": 12,
+    "landLordpp":["proporty-image/abebe4.jpg"],
+    "landlordName": "Abebe",
+    "images": [
+      "proporty-image/abebe1.jpg",
+      "proporty-image/abebe2.jpg",
+      "proporty-image/abebe3.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Luxury 3-Bedroom Villa",
+    "description": "Beautiful family villa with a large living room, private parking, and modern kitchen.",
+    "price": 58000,
+    "type": "villa",
+    "location": "Kazanchis",
+    "city": "Addis Ababa",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "status": "approved",
+    "featured": false,
+    "landlordId": 18,
+    "landLordpp":["proporty-image/hilina4.jpg"],
+    "landlordName": "Hilina",
+    "images": [
+      "proporty-image/hilina.jpg",
+      "proporty-image/hilina2.jpg",
+      "proporty-image/hilina3.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Elegant 5-Bedroom Villa",
+    "description": "Large elegant villa suitable for a family, featuring a spacious compound and multiple bathrooms.",
+    "price": 78000,
+    "type": "villa",
+    "location": "semmit",
+    "city": "Addis Ababa",
+    "bedrooms": 5,
+    "bathrooms": 4,
+    "status": "approved",
+    "featured": true,
+    "landlordId": 23,
+    "landLordpp":["proporty-image/kidus4.jpg"],
+    "landlordName": "Kidus",
+    "images": [
+      "proporty-image/kidus1.jpg",
+      "proporty-image/kidus2.jpg",
+      "proporty-image/kidus3.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Contemporary 3-Bedroom Villa",
+    "description": "Contemporary villa with bright rooms, a private compound, and convenient parking.",
+    "price": 52000,
+    "type": "villa",
+    "location": "CMC",
+    "city": "Addis Ababa",
+    "bedrooms": 3,
+    "bathrooms": 3,
+    "status": "approved",
+    "featured": false,
+    "landlordId": 27,
+    "landLordpp":["proporty-image/yohannes4.jpg"],
+    "landlordName": "Yohannes",
+    "images": [
+      "proporty-image/yohannes1.jpg",
+      "proporty-image/yohannes2.jpg",
+      "proporty-image/yohannes3.jpg"
+    ]
+  },
+
+  {
+    "id": 5,
+    "title": "Modern 1-Bedroom Apartment",
+    "description": "Comfortable modern apartment with a spacious living area .",
+    "price": 21000,
+    "type": "apartment",
+    "location": "Bole",
+    "city": "Addis Ababa",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "status": "approved",
+    "featured": true,
+    "landlordId": 31,
+    "landLordpp":["proporty-image/abel4.jpg"],
+    "landlordName": "Abel",
+    "images": [
+      "proporty-image/abel1.jpg",
+      "proporty-image/abel2.jpg"
+      
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Spacious 3-Bedroom Apartment",
+    "description": "Spacious apartment with three bedrooms, modern finishes, and a comfortable balcony.",
+    "price": 35000,
+    "type": "apartment",
+    "location": "Gerji",
+    "city": "Addis Ababa",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "status": "approved",
+    "featured": false,
+    "landLordpp":["proporty-image/bereket4.jpg"],
+    "landlordId": 35,
+    "landlordName": "Bereket",
+    "images": [
+      "proporty-image/bereket1.jpg",
+      "proporty-image/bereket2.jpg",
+      "proporty-image/bereket3.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Premium 2-Bedroom Apartment",
+    "description": "Premium apartment in a convenient neighborhood with modern rooms and excellent natural light.",
+    "price": 31000,
+    "type": "apartment",
+    "location": "saris",
+    "city": "Addis Ababa",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "status": "approved",
+    "featured": true,
+    "landlordId": 41,
+    "landLordpp":["proporty-image/kebede4.jpg"],
+    "landlordName": "Kebede",
+    "images": [
+      "proporty-image/kebede1.jpg",
+      "proporty-image/kebede2.jpg",
+      "proporty-image/kebede3.jpg"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Family 2-Bedroom Apartment",
+    "description": "family apartment with 2 bedrooms, 2 bathrooms, and a spacious living area.",
+    "price": 32000,
+    "type": "apartment",
+    "location": "Kazanchis",
+    "city": "Addis Ababa",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "status": "approved",
+    "featured": false,
+    "landlordId": 46,
+    "landLordpp":["proporty-image/semhal4.jpg"],
+    "landlordName": "Semhal",
+    "images": [
+      "proporty-image/semhal1.jpg",
+      "proporty-image/semhal2.jpg",
+      "proporty-image/semhal3.jpg"
+    ]
+  },
+
+  {
+    "id": 9,
+    "title": "Cozy Studio Apartment",
+    "description": "Compact and comfortable studio apartment ideal for a single person or student.",
+    "price": 10000,
+    "type": "studio apartment",
+    "location": "Piassa",
+    "city": "Addis Ababa",
+   
+    "bathrooms": 1,
+    "status": "approved",
+    "featured": true,
+    "landlordId": 52,
+    "landLordpp":["proporty-image/dawit4.jpg"],
+    "landlordName": "Dawit",
+    "images": [
+      "proporty-image/dawit.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Modern Studio Apartment",
+    "description": "Modern studio with an open layout, compact kitchen, and private bathroom.",
+    "price": 16500,
+    "type": "studio apartment",
+    "location": "Megenagna",
+    "city": "Addis Ababa",
+   
+    "bathrooms": 1,
+    "status": "approved",
+    "featured": false,
+    "landlordId": 57,
+    "landLordpp":["proporty-image/ashenafi4.jpg"],
+    "landlordName": "Ashenafi",
+    "images": [
+      "proporty-image/ashenafi.jpg"
+      
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Affordable Studio Apartment",
+    "description": "Affordable studio apartment with a clean interior and convenient location.",
+    "price": 12500,
+    "type": "studio apartment",
+    "location": "Mexico",
+    "city": "Addis Ababa",
+  
+    "bathrooms": 1,
+    "status": "approved",
+    "featured": false,
+    "landlordId": 63,
+    "landLordpp":["proporty-image/alem4.jpg"],
+    "landlordName": "Alem",
+    "images": [
+      "proporty-image/alem.jpg"
+      
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Bright Studio Apartment",
+    "description": "Bright studio apartment with large windows, a modern bathroom, and efficient living space.",
+    "price": 18000,
+    "type": "studio apartment",
+    "location": "Hayahulet",
+    "city": "Addis Ababa",
+  
+    "bathrooms": 1,
+    "status": "approved",
+    "featured": true,
+    "landlordId": 68,
+    "landLordpp":["proporty-image/abrham4.jpg"],
+    "landlordName": "Abrham",
+    "images": [
+      "proporty-image/abrham.jpg"
+      
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Comfortable Studio Apartment",
+    "description": "Comfortable studio apartment with a peaceful atmosphere and convenient access to nearby services.",
+    "price": 15000,
+    "type": "studio apartment",
+    "location": "Lideta",
+    "city": "Addis Ababa",
+
+    "bathrooms": 1,
+    "status": "approved",
+    "featured": false,
+    "landlordId": 74,
+    "landLordpp":["proporty-image/samuel4.jpg"],
+    "landlordName": "Samuel",
+    "images": [
+      "proporty-image/samuel.jpg"
+
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Premium Studio Apartment",
+    "description": "Premium studio apartment with stylish finishes.",
+    "price": 19500,
+    "type": "studio apartment",
+    "location": "CMC",
+    "city": "Addis Ababa",
+    
+    "bathrooms": 1,
+    "status": "approved",
+    "featured": true,
+    "landlordId": 81,
+    "landLordpp":["proporty-image/tomas4.jpg"],
+    "landlordName": "Tomas",
+    "images": [
+      "proporty-image/tomas.jpg"
+      
+    ]
+  }
+]

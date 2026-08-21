@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - RentSpace</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="admin-layout" id="admin-dashboard">
+    <aside class="sidebar">
+      <h2>RentSpace Admin</h2>
+      <nav>
+        <button class="active">Dashboard & Listings</button>
+        <button id="logout-btn" style="margin-top:auto; color:var(--danger);">Logout</button>
+      </nav>
+    </aside>
+
+    <main class="admin-content">
+      <h2>Overview & Analytics</h2>
+      <div class="analytics-grid" id="analytics-container" style="margin-top:1rem;">
+       
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:2rem;">
+        <h3>Property Catalogue</h3>
+        <button id="add-prop-btn" class="btn" style="background-color: #0b2f5c; color: #ffffff; padding: 12px 28px; font-size: 1rem; font-weight: 600; border: none; border-radius: 6px; cursor: pointer;">+ Add Property</button>
+      </div>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Featured</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="admin-props-tbody">
+         
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
