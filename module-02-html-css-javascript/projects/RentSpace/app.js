@@ -147,7 +147,7 @@ function initDetailPage() {
         
         <h3>Overview</h3>
         <ul style="list-style:none; margin: 1rem 0; display:grid; grid-template-columns: 1fr 1fr; gap:0.5rem;">
-          <li><strong>Rent:</strong> ${property.price.toLocaleString()} ETB / mo</li>
+          <li><strong>Rent:</strong> ${property.price.toLocaleString()} ETB / month</li>
           <li><strong>Type:</strong> ${property.type}</li>
           ${property.bedrooms !== undefined ? `<li><strong>Bedrooms:</strong> ${property.bedrooms}</li>` : ''}
           <li><strong>Bathrooms:</strong> ${property.bathrooms}</li>

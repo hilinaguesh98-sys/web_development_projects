@@ -16,7 +16,7 @@ async function showCountry(name) {
 
     try {
         const res = await fetch(
-            `https://api.restcountries.com/countries/v5/names.common/${encodeURIComponent(name)}`,
+            `https://api.restcountries.com/countries/v5?q=${encodeURIComponent(name)}`,
             {
                 headers: {
                     "Authorization": "Bearer rc_live_9c08cf3a3d90493b9ae0e2ddc3edec3c"

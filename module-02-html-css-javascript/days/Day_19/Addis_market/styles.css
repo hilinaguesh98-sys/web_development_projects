@@ -182,10 +182,8 @@ body {
     background: #f9fafc;
    
 }
-#list li:hover {
-    
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-}
+
+
 .item-info {
     flex: 1;
 }
@@ -280,7 +278,7 @@ body {
 #progress {
     width: 0%;
     height: 100%;
-    background: linear-gradient(90deg, #173F35, #238636);
+    background: linear-gradient(90deg, yellow, #238636);
     transition: width 0.4s;
 }
 .stats {

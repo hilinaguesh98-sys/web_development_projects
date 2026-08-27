@@ -12,6 +12,7 @@
     "status": "approved",
     "featured": true,
     "landlordId": 12,
+    "phonenumber":"0953154428",
     "landLordpp":["proporty-image/abebe4.jpg"],
     "landlordName": "Abebe",
     "images": [
@@ -33,6 +34,7 @@
     "status": "approved",
     "featured": false,
     "landlordId": 18,
+     "phonenumber":"0953154444",
     "landLordpp":["proporty-image/hilina4.jpg"],
     "landlordName": "Hilina",
     "images": [
@@ -54,6 +56,7 @@
     "status": "approved",
     "featured": true,
     "landlordId": 23,
+     "phonenumber":"0953154432",
     "landLordpp":["proporty-image/kidus4.jpg"],
     "landlordName": "Kidus",
     "images": [
@@ -75,6 +78,7 @@
     "status": "approved",
     "featured": false,
     "landlordId": 27,
+     "phonenumber":"0953151392",
     "landLordpp":["proporty-image/yohannes4.jpg"],
     "landlordName": "Yohannes",
     "images": [
@@ -97,6 +101,7 @@
     "status": "approved",
     "featured": true,
     "landlordId": 31,
+     "phonenumber":"0953152932",
     "landLordpp":["proporty-image/abel4.jpg"],
     "landlordName": "Abel",
     "images": [
@@ -119,6 +124,7 @@
     "featured": false,
     "landLordpp":["proporty-image/bereket4.jpg"],
     "landlordId": 35,
+    "phonenumber":"0953157832",
     "landlordName": "Bereket",
     "images": [
       "proporty-image/bereket1.jpg",
@@ -139,6 +145,7 @@
     "status": "approved",
     "featured": true,
     "landlordId": 41,
+     "phonenumber":"0953154428",
     "landLordpp":["proporty-image/kebede4.jpg"],
     "landlordName": "Kebede",
     "images": [
