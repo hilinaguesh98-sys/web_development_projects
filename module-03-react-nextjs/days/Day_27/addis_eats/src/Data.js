@@ -1,4 +1,4 @@
-const menu=[
+const dishes=[
   {
     id: "item-1",
     name: "Cheese Burger",
@@ -35,3 +35,4 @@ const menu=[
   },
  
   ];
+export default dishes;

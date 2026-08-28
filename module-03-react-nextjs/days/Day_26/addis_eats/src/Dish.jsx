@@ -4,6 +4,7 @@ function Dish({name,price,discription}){
             <p>Name:{name}</p>
             <p>price: {price}</p>
             <p>Discription: {discription}</p>
+            <p>ingr: {discription}</p>
         </div>
     );}
 export default Dish;

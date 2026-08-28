@@ -57,7 +57,7 @@ return(
   <Header/>
    <div className="menu">
         {menu.map((dish) => (
-          <Dish key={dish.id}  name={dish.name} price={dish.price} discription={dish.discription}/>
+          <Dish key={dish.id}  name={dish.name} price={dish.price} discription={dish.discription} ingredients={dish.ingredients}/>
         ))}
       </div>
   </>
