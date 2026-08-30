@@ -6,11 +6,12 @@ body {
 
 .header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   text-align: center;
   background: rgb(185, 85, 185);
   color: white;
   padding: 30px;
+  justify-content: space-between;
 }
 
 .header-text {
@@ -65,7 +66,7 @@ body {
 }
 
 .menu-section h2 {
-  color: rgb(185, 85, 185);
+  color: rgb(0, 0, 0);
   font-size: 2em;
   margin-bottom: 30px;
 }
@@ -79,21 +80,19 @@ body {
 
 .category-chip {
   padding: 8px 16px;
-  border: 2px solid rgb(185, 85, 185);
+  border: 2px solid rgb(0, 0, 0);
   background: white;
-  color: rgb(185, 85, 185);
+  color: rgb(0, 0, 0);
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s;
 }
 
-.category-chip:hover {
-  background: rgba(185, 85, 185, 0.1);
-}
+
 
 .category-chip.active {
-  background: rgb(185, 85, 185);
+  background: rgb(0, 0, 0);
   color: white;
 }
 
@@ -111,17 +110,14 @@ body {
   background: white;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+ 
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: transform 0.3s, box-shadow 0.3s;
+
 }
 
-.dish:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(185, 85, 185, 0.2);
-}
+
 
 .dish-header {
   display: flex;
@@ -133,13 +129,13 @@ body {
 
 .dish-header h3 {
   margin: 0;
-  color: rgb(185, 85, 185);
+  color: rgb(0, 0, 0);
   font-size: 1.3em;
   flex: 1;
 }
 
 .spicy-badge {
-  background: #ff4444;
+  background: rgb(185, 85, 185);
   color: white;
   padding: 4px 12px;
   border-radius: 20px;
@@ -150,14 +146,14 @@ body {
 
 .category {
   display: inline-block;
-  background: #f0e6f0;
-  color: rgb(185, 85, 185);
+ 
+  color: rgb(0, 0, 0);
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 0.85em;
   font-weight: 500;
   margin: 0 0 10px 0;
-  text-transform: capitalize;
+
 }
 
 .description {
@@ -189,28 +185,24 @@ body {
   padding: 8px 12px;
   border: none;
   border-radius: 6px;
-  background: rgb(185, 85, 185);
+  background: rgb(0, 0, 0);
   color: white;
   font-weight: bold;
   font-size: 1.1em;
   cursor: pointer;
-  transition: background 0.3s;
+
 }
 
-.btn-add:hover,
-.btn-remove:hover {
-  background: rgb(165, 65, 165);
-}
+
 
 .count {
   flex: 1;
   text-align: center;
-  font-weight: bold;
-  color: rgb(185, 85, 185);
+ 
+  color: rgb(0, 0, 0);
   font-size: 1em;
 }
 
-/* Order Section Styles */
 .order-summary {
   background: white;
   padding: 20px;
@@ -222,8 +214,8 @@ body {
 
 .order-summary h3 {
   margin: 0 0 15px 0;
-  color: rgb(185, 85, 185);
-  border-bottom: 2px solid rgb(185, 85, 185);
+  color: rgb(0, 0, 0);
+
   padding-bottom: 10px;
 }
 
@@ -247,11 +239,11 @@ body {
 
 .item-price {
   font-weight: bold;
-  color: rgb(185, 85, 185);
+  color: rgb(18, 8, 18);
 }
 
 .order-total {
-  background: #f0e6f0;
+ 
   padding: 12px;
   border-radius: 6px;
   text-align: center;
@@ -259,7 +251,6 @@ body {
   font-size: 1.2em;
 }
 
-/* Order Form Styles */
 .order-form {
   background: white;
   padding: 20px;
@@ -269,7 +260,7 @@ body {
 
 .order-form h4 {
   margin: 0 0 15px 0;
-  color: rgb(185, 85, 185);
+  color: rgb(1, 0, 1);
 }
 
 .form-group {
@@ -297,7 +288,7 @@ body {
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: rgb(185, 85, 185);
+  border-color: rgb(0, 0, 0);
   box-shadow: 0 0 5px rgba(185, 85, 185, 0.3);
 }
 
@@ -315,8 +306,8 @@ body {
 .btn-submit {
   width: 100%;
   padding: 12px;
-  background: rgb(185, 85, 185);
-  color: white;
+ 
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 6px;
   font-weight: bold;
@@ -325,9 +316,6 @@ body {
   transition: background 0.3s;
 }
 
-.btn-submit:hover:not(:disabled) {
-  background: rgb(165, 65, 165);
-}
 
 .btn-submit:disabled {
   background: #ccc;
@@ -340,7 +328,6 @@ body {
   padding: 50px 20px;
 }
 
-/* Loading State */
 .loading-container {
   padding: 60px 20px;
   text-align: center;
@@ -348,7 +335,7 @@ body {
 
 .loading {
   font-size: 1.5em;
-  color: rgb(185, 85, 185);
+  color: rgb(0, 0, 0);
   animation: pulse 1.5s ease-in-out infinite;
 }
 
@@ -361,7 +348,6 @@ body {
   }
 }
 
-/* Error State */
 .error-container {
   padding: 60px 20px;
   text-align: center;
@@ -388,7 +374,6 @@ body {
   background-color: #b71c1c;
 }
 
-/* Search Input */
 .search-container {
   margin-bottom: 20px;
 }
@@ -398,14 +383,14 @@ body {
   max-width: 400px;
   padding: 12px 20px;
   font-size: 1em;
-  border: 2px solid rgb(185, 85, 185);
+ 
   border-radius: 8px;
   outline: none;
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .search-input:focus {
-  border-color: rgb(185, 85, 185);
+  border-color: rgb(0, 0, 0);
   box-shadow: 0 0 8px rgba(185, 85, 185, 0.3);
 }
 
@@ -413,7 +398,6 @@ body {
   color: #999;
 }
 
-/* Dish Actions */
 .dish-actions {
   margin-top: 15px;
   display: flex;
@@ -423,7 +407,7 @@ body {
 .btn-add-to-cart {
   width: 100%;
   padding: 12px;
-  background-color: rgb(185, 85, 185);
+  background-color: rgb(0, 0, 0);
   color: white;
   border: none;
   border-radius: 6px;
@@ -434,7 +418,7 @@ body {
 }
 
 .btn-add-to-cart:hover {
-  background-color: #c862c8;
+  background-color: #000000;
   transform: scale(1.05);
 }
 
@@ -454,10 +438,9 @@ body {
 .btn-remove,
 .btn-add {
   width: 40px;
-  height: 40px;
-  border: 2px solid rgb(185, 85, 185);
+  
   background-color: white;
-  color: rgb(185, 85, 185);
+  color: rgb(0, 0, 0);
   border-radius: 50%;
   font-size: 1.2em;
   font-weight: bold;
@@ -470,7 +453,7 @@ body {
 
 .btn-remove:hover,
 .btn-add:hover {
-  background-color: rgb(185, 85, 185);
+  background-color: rgb(5, 2, 5);
   color: white;
 }
 
@@ -482,7 +465,7 @@ body {
 .count {
   font-weight: bold;
   font-size: 1.2em;
-  color: rgb(185, 85, 185);
+  color: rgb(0, 0, 0);
   min-width: 30px;
   text-align: center;
 }
@@ -497,9 +480,9 @@ body {
 
 .category-chip {
   padding: 10px 20px;
-  border: 2px solid rgb(185, 85, 185);
+  
   background-color: white;
-  color: rgb(185, 85, 185);
+  color: rgb(0, 0, 0);
   border-radius: 25px;
   cursor: pointer;
   font-weight: 500;
@@ -511,7 +494,7 @@ body {
 }
 
 .category-chip.active {
-  background-color: rgb(185, 85, 185);
+  background-color: rgb(1, 0, 1);
   color: white;
 }
 
@@ -524,7 +507,7 @@ body {
 }
 
 .order-form h3 {
-  color: rgb(185, 85, 185);
+  color: rgb(0, 0, 0);
   margin-top: 0;
 }
 
@@ -551,7 +534,7 @@ body {
 
 .form-group input:focus {
   outline: none;
-  border-color: rgb(185, 85, 185);
+  border-color: rgb(0, 0, 0);
 }
 
 .form-group input.error {
@@ -567,7 +550,7 @@ body {
 .btn-submit {
   width: 100%;
   padding: 12px;
-  background-color: rgb(185, 85, 185);
+  background-color: rgb(0, 0, 0);
   color: white;
   border: none;
   border-radius: 6px;
@@ -579,7 +562,7 @@ body {
 }
 
 .btn-submit:hover:not(:disabled) {
-  background-color: #c862c8;
+  background-color: #0b060b;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(185, 85, 185, 0.3);
 }

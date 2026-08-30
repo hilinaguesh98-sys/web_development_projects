@@ -1,17 +1,20 @@
 import PropTypes from "prop-types";
-import Card from "./card";
-function Dish({ name, price, spicy, currency = "ETB" }) {
-  return (
-    <Card>
-      <h2>{name}</h2>
-      <p>
-        {price} {currency}
-      </p>
 
-      {typeof spicy === "boolean" && spicy && (
-        <span className="spicy-badge">Spicy</span>
-      )}
-    </Card>
+function Dish({ name, price, spicy, currency = "ETB", description, category }) {
+  return (
+    <article className="dish">
+      <div className="dish-header">
+        <h3>{name}</h3>
+        {spicy === true && <span className="spicy-badge">Spicy</span>}
+      </div>
+
+      <p className="category">{category}</p>
+      <p className="description">{description}</p>
+
+      <p className="price">
+        {currency} {price}
+      </p>
+    </article>
   );
 }
 
@@ -20,6 +23,8 @@ Dish.propTypes = {
   price: PropTypes.number.isRequired,
   spicy: PropTypes.bool,
   currency: PropTypes.string,
+  description: PropTypes.string,
+  category: PropTypes.string,
 };
 
 Dish.defaultProps = {
@@ -27,3 +32,4 @@ Dish.defaultProps = {
 };
 
 export default Dish;
+
