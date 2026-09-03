@@ -1,34 +1,26 @@
+import PropTypes from "prop-types";
 import Dish from "./Dish";
 import Card from "./card.jsx";
 
-function DishList({ dishes, orderItems, onAddDish, onRemoveDish }) {
-  if (!dishes || dishes.length === 0) {
-    return (
-      <div className="empty-state">
-        <p>No dishes available.</p>
-      </div>
-    );
+function DishList({ dishes, onAdd }) {
+  if (dishes.length === 0) {
+    return <p className="empty-state">No dishes found in this category.</p>;
   }
 
   return (
     <div className="menu-grid">
       {dishes.map((dish) => (
         <Card key={dish.id}>
-          <Dish
-            id={dish.id}
-            name={dish.name}
-            price={dish.price}
-            spicy={dish.spicy}
-            description={dish.description}
-            category={dish.category}
-            count={orderItems[dish.id] || 0}
-            onAdd={onAddDish}
-            onRemove={onRemoveDish}
-          />
+          <Dish {...dish} onAdd={onAdd} />
         </Card>
       ))}
     </div>
   );
 }
+
+DishList.propTypes = {
+  dishes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onAdd: PropTypes.func.isRequired,
+};
 
 export default DishList;

@@ -133,7 +133,7 @@ body {
 
 .cart-title h2 {
   margin: 0;
-  color: rgb(185, 85, 185);
+  color: rgb(147, 106, 106);
 }
 
 .empty-cart {
@@ -188,7 +188,7 @@ body {
   height: 30px;
   border: none;
   border-radius: 6px;
-  background: rgb(185, 85, 185);
+  background: rgb(147, 106, 106);
   color: white;
   font-size: 18px;
   font-weight: bold;
@@ -203,7 +203,7 @@ body {
 
 .item-total {
   margin: 10px 0 0;
-  color: rgb(185, 85, 185);
+  color: rgb(147, 106, 106);
   font-weight: bold;
 }
 
@@ -221,7 +221,7 @@ body {
 }
 
 .cart-total strong {
-  color: rgb(185, 85, 185);
+  color: rgb(147, 106, 106);
 }
 
 .checkout-button {
@@ -229,7 +229,7 @@ body {
   padding: 13px;
   border: none;
   border-radius: 8px;
-  background: rgb(185, 85, 185);
+  background: rgb(147, 106, 106);
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -241,7 +241,7 @@ body {
   padding: 10px 18px;
   border: none;
   border-radius: 8px;
-  background: rgb(185, 85, 185);
+  background: rgb(147, 106, 106);
   color: white;
   font-weight: bold;
   cursor: pointer;
@@ -346,7 +346,7 @@ body {
 
 .checkout-modal h2 {
   margin-top: 0;
-  color: rgb(185, 85, 185);
+  color: rgb(147, 106, 106);
   text-align: center;
 }
 
@@ -398,7 +398,7 @@ body {
 }
 
 .checkout-total strong {
-  color: rgb(185, 85, 185);
+  color: rgb(147, 106, 106);
 }
 
 .order-button {
@@ -406,7 +406,7 @@ body {
   padding: 13px;
   border: none;
   border-radius: 8px;
-  background: rgb(185, 85, 185);
+  background: rgb(147, 106, 106);
   color: white;
   font-size: 16px;
   font-weight: bold;

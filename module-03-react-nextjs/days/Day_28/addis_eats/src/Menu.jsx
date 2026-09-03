@@ -1,203 +1,137 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import CategoryBar from "./CategoryBar";
 import DishList from "./DishList";
 import OrderForm from "./OrderForm";
-import { loadDishes } from "./api.js";
+import dishes from "./Data.js";
 import "./App.css";
 
 function Header() {
   return (
-    <div className="header">
+    <header className="header">
       <div className="header-text">
         <h1>Addis Eats</h1>
         <p>Welcome to Addis Eats</p>
       </div>
-
       <nav className="nav-link">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#order">Order</a>
       </nav>
-    </div>
+    </header>
   );
 }
 
 function Menu() {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [orderItems, setOrderItems] = useState({});
-  const [dishes, setDishes] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [searchQuery, setSearchQuery] = useState("");
-  const searchInputRef = useRef(null);
-
-  // Fetch dishes when component mounts or category changes
-  useEffect(() => {
-    const abortController = new AbortController();
-    
-    const fetchDishes = async () => {
-      try {
-        setLoading(true);
-        setError(null);
-        const data = await loadDishes(selectedCategory);
-        setDishes(data);
-      } catch (err) {
-        setError(err.message || "Failed to load dishes. Please try again.");
-        setDishes([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchDishes();
-
-    // Cleanup function: abort the request if the component unmounts
-    return () => {
-      abortController.abort();
-    };
-  }, [selectedCategory]);
-
-  // Auto-focus search input on mount
-  useEffect(() => {
-    if (searchInputRef.current) {
-      searchInputRef.current.focus();
-    }
-  }, []);
-
-  const uniqueCategories = [
-    ...new Set(dishes.map((dish) => dish.category))
+  const [cart, setCart] = useState([]);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+  const categories = [
+    "all",
+    ...new Set(dishes.map((dish) => dish.category)),
   ];
+  const filteredDishes = selectedCategory === "all"
+    ? dishes
+    : dishes.filter((dish) => dish.category === selectedCategory);
 
-  const filteredDishes = dishes.filter((dish) => {
-    const matchesCategory =
-      selectedCategory === "all" || dish.category === selectedCategory;
-    const matchesSearch = dish.name
-      .toLowerCase()
-      .includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  function handleAdd(dish) {
+    setCart((currentCart) => {
+      const existingDish = currentCart.find((item) => item.id === dish.id);
 
-  const handleAddDish = (dishId) => {
-    setOrderItems((prev) => ({
-      ...prev,
-      [dishId]: (prev[dishId] || 0) + 1,
-    }));
-  };
-
-  const handleRemoveDish = (dishId) => {
-    setOrderItems((prev) => {
-      const newItems = { ...prev };
-      if (newItems[dishId] > 1) {
-        newItems[dishId]--;
-      } else {
-        delete newItems[dishId];
+      if (existingDish) {
+        return currentCart.map((item) =>
+          item.id === dish.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
       }
-      return newItems;
+
+      return [...currentCart, { ...dish, quantity: 1 }];
     });
-  };
+  }
 
-  const orderTotal = Object.keys(orderItems).reduce((total, dishId) => {
-    const dish = dishes.find((d) => d.id === dishId);
-    return total + (dish ? dish.price * orderItems[dishId] : 0);
-  }, 0);
-
-  // Render loading state
-  if (loading) {
-    return (
-      <>
-        <Header />
-        <div className="loading-container">
-          <p className="loading">Loading menu... 🍽️</p>
-        </div>
-      </>
+  function handleQuantityChange(id, change) {
+    setCart((currentCart) =>
+      currentCart
+        .map((item) =>
+          item.id === id
+            ? { ...item, quantity: item.quantity + change }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
     );
   }
 
-  // Render error state
-  if (error) {
-    return (
-      <>
-        <Header />
-        <div className="error-container">
-          <p className="error">❌ {error}</p>
-          <button onClick={() => window.location.reload()}>Retry</button>
-        </div>
-      </>
-    );
-  }
+  const total = cart.reduce(
+    (currentTotal, item) => currentTotal + item.price * item.quantity,
+    0
+  );
 
   return (
     <>
       <Header />
-      <div className="main-container">
-        <section className="menu-section">
-          <h2>Our Menu</h2>
-          
-          {/* Search Input */}
-          <div className="search-container">
-            <input
-              ref={searchInputRef}
-              type="text"
-              placeholder="Search dishes..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="search-input"
-            />
+      <main className="menu" id="home">
+        <h2>Our Menu</h2>
+        <CategoryBar
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onSelect={setSelectedCategory}
+        />
+        <div className="page-layout">
+          <div className="menu-content">
+            <DishList dishes={filteredDishes} onAdd={handleAdd} />
           </div>
-
-          <CategoryBar
-            categories={["all", ...uniqueCategories]}
-            selectedCategory={selectedCategory}
-            onSelect={setSelectedCategory}
-          />
-
-          {filteredDishes.length === 0 ? (
-            <div className="empty-state">
-              <p>No dishes found matching your search.</p>
-            </div>
-          ) : (
-            <DishList
-              dishes={filteredDishes}
-              orderItems={orderItems}
-              onAddDish={handleAddDish}
-              onRemoveDish={handleRemoveDish}
-            />
-          )}
-        </section>
-
-        <aside className="order-section">
-          <div className="order-summary">
-            <h3>Order Summary</h3>
-            <div className="order-items">
-              {Object.keys(orderItems).map((dishId) => {
-                const dish = dishes.find((d) => d.id === dishId);
-                return (
-                  <div key={dishId} className="order-item">
-                    <span>
-                      {dish.name} x{orderItems[dishId]}
-                    </span>
-                    <span className="item-price">
-                      ETB {dish.price * orderItems[dishId]}
-                    </span>
+          <aside className="sidebar-wrapper">
+            <div className="cart-sidebar">
+              <div className="cart-title">
+                <h2>Your Cart</h2>
+              </div>
+              {cart.length === 0 ? (
+                <div className="empty-cart">
+                  <p>Your cart is empty.</p>
+                  <span>Add dishes to begin your order.</span>
+                </div>
+              ) : (
+                <>
+                  <div className="cart-items">
+                    {cart.map((item) => (
+                      <div className="cart-item" key={item.id}>
+                        <div className="cart-item-info">
+                          <h3>{item.name}</h3>
+                          <p>{item.price} ETB each</p>
+                        </div>
+                        <div className="quantity-controls">
+                          <button type="button" onClick={() => handleQuantityChange(item.id, -1)}>-</button>
+                          <span>{item.quantity}</span>
+                          <button type="button" onClick={() => handleQuantityChange(item.id, 1)}>+</button>
+                        </div>
+                        <p className="item-total">{item.price * item.quantity} ETB</p>
+                      </div>
+                    ))}
                   </div>
-                );
-              })}
+                  <div className="cart-bottom">
+                    <div className="cart-total">
+                      <span>Total</span>
+                      <strong>{total} ETB</strong>
+                    </div>
+                    <button
+                      className="checkout-button"
+                      type="button"
+                      onClick={() => setIsCheckoutOpen(true)}
+                    >
+                      Checkout
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
-            <div className="order-total">
-              <strong>Total: ETB {orderTotal}</strong>
-            </div>
-          </div>
-
-          {orderTotal > 0 && (
-            <OrderForm orderTotal={orderTotal} orderItems={orderItems} />
-          )}
-        </aside>
-      </div>
+          </aside>
+        </div>
+      </main>
+      {isCheckoutOpen && (
+        <OrderForm total={total} onClose={() => setIsCheckoutOpen(false)} />
+      )}
     </>
   );
 }
 
 export default Menu;
-
-
-

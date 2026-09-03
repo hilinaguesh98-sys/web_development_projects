@@ -58,9 +58,6 @@ Total: ${total} ETB`
 
         <h2>Delivery Information</h2>
 
-        <p className="checkout-subtitle">
-          Enter your information to complete your order.
-        </p>
 
         <form className="order-form" onSubmit={handleSubmit}>
           <div className="form-group">
@@ -85,7 +82,7 @@ Total: ${total} ETB`
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="09XXXXXXXX"
+              placeholder="0953158498"
             />
 
             {formData.phone !== "" && !phoneIsValid && (
@@ -118,7 +115,7 @@ Total: ${total} ETB`
             className="order-button"
             disabled={!formIsValid}
           >
-            Place Order with TeleBirr
+            Order with TeleBirr
           </button>
         </form>
       </div>

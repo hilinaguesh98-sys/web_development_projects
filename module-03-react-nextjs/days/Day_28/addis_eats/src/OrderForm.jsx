@@ -1,165 +1,146 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-function OrderForm({ orderTotal, orderItems }) {
+function OrderForm({ total, onClose }) {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     area: "",
-    teleBirr: "",
   });
 
-  const [errors, setErrors] = useState({});
+  function handleChange(event) {
+    const { name, value } = event.target;
 
-  const validateTeleBirr = (value) => {
-    // TeleBirr number validation: should be 10 digits starting with 9
-    const teleBirrRegex = /^9\d{9}$/;
-    return teleBirrRegex.test(value);
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
+    setFormData({
+      ...formData,
       [name]: value,
-    }));
+    });
+  }
 
-    // Clear error for this field when user starts typing
-    if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: "",
-      }));
-    }
-  };
+  const phoneIsValid = /^(09\d{8}|\+2519\d{8})$/.test(
+    formData.phone
+  );
 
-  const validateForm = () => {
-    const newErrors = {};
+  const formIsValid =
+    formData.name.trim() !== "" &&
+    phoneIsValid &&
+    formData.area.trim() !== "";
 
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    }
+  function handleSubmit(event) {
+    event.preventDefault();
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-    }
-
-    if (!formData.area.trim()) {
-      newErrors.area = "Delivery area is required";
-    }
-
-    if (!formData.teleBirr.trim()) {
-      newErrors.teleBirr = "TeleBirr number is required";
-    } else if (!validateTeleBirr(formData.teleBirr)) {
-      newErrors.teleBirr = "TeleBirr must be 10 digits starting with 9";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (!validateForm()) {
+    if (!formIsValid) {
       return;
     }
 
-    console.log("Order submitted:", {
-      ...formData,
-      total: orderTotal,
-      items: orderItems,
-    });
+    alert(
+      `Order placed successfully!
 
-    alert(`Order placed! Total: ETB ${orderTotal}\nThanks ${formData.name}!`);
-    
-    // Reset form
-    setFormData({
-      name: "",
-      phone: "",
-      area: "",
-      teleBirr: "",
-    });
-  };
-
-  const isFormValid =
-    formData.name.trim() &&
-    formData.phone.trim() &&
-    formData.area.trim() &&
-    validateTeleBirr(formData.teleBirr);
+Name: ${formData.name}
+Phone: ${formData.phone}
+Area: ${formData.area}
+Total: ${total} ETB`
+    );
+  }
 
   return (
-    <form className="order-form" onSubmit={handleSubmit}>
-      <h3>Delivery Form</h3>
+    <div className="checkout-overlay">
+      <div className="checkout-modal">
 
-      <div className="form-group">
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Your name"
-          className={errors.name ? "error" : ""}
-        />
-        {errors.name && <span className="error-message">{errors.name}</span>}
+        <button
+          className="close-button"
+          onClick={onClose}
+        >
+          ×
+        </button>
+
+        <h2>Delivery Information</h2>
+
+       
+
+        <form
+          className="order-form"
+          onSubmit={handleSubmit}
+        >
+
+          <div className="form-group">
+            <label htmlFor="name">
+              Full Name
+            </label>
+
+            <input
+              id="name"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Enter your name"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="phone">
+              TeleBirr Number
+            </label>
+
+            <input
+              id="phone"
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="0953158498"
+            />
+
+            {formData.phone !== "" &&
+              !phoneIsValid && (
+                <p className="error-message">
+                  Enter a valid TeleBirr number.
+                </p>
+              )}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="area">
+              Delivery Area
+            </label>
+
+            <input
+              id="area"
+              type="text"
+              name="area"
+              value={formData.area}
+              onChange={handleChange}
+              placeholder="Enter your area"
+            />
+          </div>
+
+          <div className="checkout-total">
+            <span>Order Total</span>
+            <strong>{total} ETB</strong>
+          </div>
+
+          <button
+            type="submit"
+            className="order-button"
+            disabled={!formIsValid}
+          >
+            Order with TeleBirr
+          </button>
+
+        </form>
       </div>
-
-      <div className="form-group">
-        <label htmlFor="phone">Phone</label>
-        <input
-          type="tel"
-          id="phone"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          placeholder="09xx xxx xxx"
-          className={errors.phone ? "error" : ""}
-        />
-        {errors.phone && <span className="error-message">{errors.phone}</span>}
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="area">Delivery Area</label>
-        <input
-          type="text"
-          id="area"
-          name="area"
-          value={formData.area}
-          onChange={handleChange}
-          placeholder="e.g., Bole, Nifas Silk"
-          className={errors.area ? "error" : ""}
-        />
-        {errors.area && <span className="error-message">{errors.area}</span>}
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="teleBirr">TeleBirr Number</label>
-        <input
-          type="text"
-          id="teleBirr"
-          name="teleBirr"
-          value={formData.teleBirr}
-          onChange={handleChange}
-          placeholder="9xxxxxxxxx"
-          maxLength="10"
-          inputMode="numeric"
-          className={errors.teleBirr ? "error" : ""}
-        />
-        {errors.teleBirr && (
-          <span className="error-message">{errors.teleBirr}</span>
-        )}
-      </div>
-
-      <button
-        type="submit"
-        className="btn-submit"
-        disabled={!isFormValid}
-      >
-        Place Order - ETB {orderTotal}
-      </button>
-    </form>
+    </div>
   );
 }
+
+OrderForm.propTypes = {
+  total: PropTypes.number.isRequired,
+  onClose: PropTypes.func,
+};
+
+OrderForm.defaultProps = {
+  onClose: () => {},
+};
 
 export default OrderForm;
