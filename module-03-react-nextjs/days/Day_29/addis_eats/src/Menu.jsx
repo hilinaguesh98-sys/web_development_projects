@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import CategoryBar from "./CategoryBar";
 import DishList from "./DishList";
+import OrderForm from "./OrderForm";
 import { loadDishes } from "./api";
 import "./App.css";
 
@@ -28,6 +29,8 @@ function Menu() {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [cart, setCart] = useState([]);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const searchInputRef = useRef(null);
 
   useEffect(() => {
@@ -64,6 +67,37 @@ function Menu() {
     setSelectedCategory(category);
   }
 
+  function handleAdd(dish) {
+    setCart((currentCart) => {
+      const existingDish = currentCart.find((item) => item.id === dish.id);
+      if (existingDish) {
+        return currentCart.map((item) =>
+          item.id === dish.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+      return [...currentCart, { ...dish, quantity: 1 }];
+    });
+  }
+
+  function handleQuantityChange(id, change) {
+    setCart((currentCart) =>
+      currentCart
+        .map((item) =>
+          item.id === id
+            ? { ...item, quantity: item.quantity + change }
+            : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
+  }
+
+  const total = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
   if (loading) {
     return <div className="status-state"><p>Loading Addis Eats menu...</p></div>;
   }
@@ -94,8 +128,49 @@ function Menu() {
             aria-label="Search dishes"
           />
         </div>
-        <DishList dishes={visibleDishes} />
+        <div className="page-layout">
+          <div className="menu-content">
+            <DishList dishes={visibleDishes} onAdd={handleAdd} />
+          </div>
+          <aside className="sidebar-wrapper">
+            <div className="cart-sidebar">
+              <div className="cart-title"><h2>Your Cart</h2></div>
+              {cart.length === 0 ? (
+                <div className="empty-cart">
+                  <p>Your cart is empty.</p>
+                  <span>Add dishes to begin your order.</span>
+                </div>
+              ) : (
+                <>
+                  <div className="cart-items">
+                    {cart.map((item) => (
+                      <div className="cart-item" key={item.id}>
+                        <div className="cart-item-info">
+                          <h3>{item.name}</h3>
+                          <p>{item.price} ETB each</p>
+                        </div>
+                        <div className="quantity-controls">
+                          <button type="button" onClick={() => handleQuantityChange(item.id, -1)}>-</button>
+                          <span>{item.quantity}</span>
+                          <button type="button" onClick={() => handleQuantityChange(item.id, 1)}>+</button>
+                        </div>
+                        <p className="item-total">{item.price * item.quantity} ETB</p>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="cart-bottom">
+                    <div className="cart-total"><span>Total</span><strong>{total} ETB</strong></div>
+                    <button className="checkout-button" type="button" onClick={() => setIsCheckoutOpen(true)}>
+                      Checkout
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
+          </aside>
+        </div>
       </main>
+      {isCheckoutOpen && <OrderForm total={total} onClose={() => setIsCheckoutOpen(false)} />}
     </>
   );
 }

@@ -7,6 +7,7 @@ function Dish({
   currency = "ETB",
   description,
   category,
+  onAdd,
 }) {
   return (
     <article className="dish">
@@ -31,7 +32,9 @@ function Dish({
       <p className="price">
         {currency} {price}
       </p>
-
+      <button className="add-button" type="button" onClick={() => onAdd(price)}>
+        Add
+      </button>
     </article>
   );
 }
@@ -43,6 +46,7 @@ Dish.propTypes = {
   currency: PropTypes.string,
   description: PropTypes.string,
   category: PropTypes.string,
+  onAdd: PropTypes.func.isRequired,
 };
 
 Dish.defaultProps = {
