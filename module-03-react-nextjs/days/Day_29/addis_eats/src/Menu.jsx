@@ -59,6 +59,7 @@ function Menu() {
   });
 
   function handleCategorySelect(category) {
+    if (category === selectedCategory) return;
     setLoading(true);
     setSelectedCategory(category);
   }
