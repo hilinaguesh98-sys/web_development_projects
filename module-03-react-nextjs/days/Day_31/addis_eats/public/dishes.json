@@ -1,0 +1,162 @@
+[
+  {
+    "id": "item-1",
+    "name": "Cheese Burger",
+    "category": "burgers",
+    "spicy": false,
+    "price": 400,
+    "description": "Juicy beef patty topped with melted cheddar cheese and fresh veggies."
+  },
+  {
+    "id": "item-2",
+    "name": "Beef Burger",
+    "category": "burgers",
+    "spicy": false,
+    "price": 350,
+    "description": "Grilled classic beef patty served with lettuce, tomato, and house sauce."
+  },
+  {
+    "id": "item-3",
+    "name": "Double Bacon Cheeseburger",
+    "category": "burgers",
+    "spicy": true,
+    "price": 550,
+    "description": "Two seasoned beef patties layered with crispy bacon and double cheese."
+  },
+  {
+    "id": "item-4",
+    "name": "Margherita Pizza",
+    "category": "pizza",
+    "spicy": false,
+    "price": 500,
+    "description": "Freshly baked pizza topped with savory tomato sauce and mozzarella cheese."
+  },
+  {
+    "id": "item-5",
+    "name": "Beef Pepperoni Pizza",
+    "category": "pizza",
+    "spicy": true,
+    "price": 600,
+    "description": "Classic stone-baked crust topped with sliced beef pepperoni and extra cheese."
+  },
+  {
+    "id": "item-6",
+    "name": "Veggie Pizza",
+    "category": "pizza",
+    "spicy": false,
+    "price": 520,
+    "description": "Loaded with bell peppers, onions, olives, mushrooms, and mozzarella."
+  },
+  {
+    "id": "item-7",
+    "name": "Doro Wat",
+    "category": "ethiopian",
+    "spicy": true,
+    "price": 550,
+    "description": "A traditional Ethiopian slow-cooked chicken stew with boiled eggs and injera."
+  },
+  {
+    "id": "item-8",
+    "name": "Beyaynetu",
+    "category": "ethiopian",
+    "spicy": false,
+    "price": 350,
+    "description": "A traditional Ethiopian platter featuring a colorful variety of vegan stews."
+  },
+  {
+    "id": "item-9",
+    "name": "Tibs",
+    "category": "ethiopian",
+    "spicy": false,
+    "price": 450,
+    "description": "Sautéed beef strips seasoned with onions, garlic, rosemary, and green peppers."
+  },
+  {
+    "id": "item-10",
+    "name": "Shiro Wat",
+    "category": "ethiopian",
+    "spicy": false,
+    "price": 350,
+    "description": "A rich and savory chickpea flour stew served bubbling hot with injera."
+  },
+  {
+    "id": "item-11",
+    "name": "Misir Wat",
+    "category": "ethiopian",
+    "spicy": true,
+    "price": 450,
+    "description": "Spicy red lentil stew simmered in authentic berbere spices."
+  },
+  {
+    "id": "item-13",
+    "name": "Siga Kurt",
+    "category": "ethiopian",
+    "spicy": false,
+    "price": 550,
+    "description": "Freshly carved raw beef served with mitmita and warm awaze dip."
+  },
+  {
+    "id": "item-14",
+    "name": "Shekla Tibs",
+    "category": "ethiopian",
+    "spicy": false,
+    "price": 550,
+    "description": "Sizzling beef served in a traditional heated clay pot over live coals."
+  },
+  {
+    "id": "item-15",
+    "name": "Kitfo",
+    "category": "ethiopian",
+    "spicy": false,
+    "price": 450,
+    "description": "Minced tender beef seasoned with purified niter kibbeh and mitmita."
+  },
+  {
+    "id": "item-16",
+    "name": "French Fries",
+    "category": "sides",
+    "spicy": false,
+    "price": 180,
+    "description": "Crispy golden fried potato chips seasoned light with sea salt."
+  },
+  {
+    "id": "item-17",
+    "name": "Garlic Bread",
+    "category": "sides",
+    "spicy": false,
+    "price": 150,
+    "description": "Toasted baguette slices brushed with garlic butter and parsley."
+  },
+  {
+    "id": "item-18",
+    "name": "Fresh Orange Juice",
+    "category": "drinks",
+    "spicy": false,
+    "price": 120,
+    "description": "100% freshly squeezed natural orange juice."
+  },
+  {
+    "id": "item-19",
+    "name": "Coca-Cola",
+    "category": "drinks",
+    "spicy": false,
+    "price": 60,
+    "description": "Chilled 330ml glass bottle classic Coca-Cola."
+  },
+  {
+    "id": "item-20",
+    "name": "Sprite",
+    "category": "drinks",
+    "spicy": false,
+    "price": 60,
+    "description": "Chilled 330ml glass bottle crisp lemon-lime Sprite."
+  },
+  {
+    "id": "item-21",
+    "name": "Macchiato",
+    "category": "drinks",
+    "spicy": false,
+    "price": 80,
+    "description": "Rich layered espresso with steamed foam milk."
+  }
+]
