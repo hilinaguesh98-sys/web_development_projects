@@ -14,7 +14,7 @@ const initialForm = {
   notes: "",
 };
 
-function Checkout({ onClose }) {
+function Checkout({ onClose = () => {} }) {
   const navigate = useNavigate();
   const total = useCartStore((state) =>
     state.items.reduce((sum, item) => sum + item.price * item.quantity, 0)
@@ -158,10 +158,6 @@ function Checkout({ onClose }) {
 
 Checkout.propTypes = {
   onClose: PropTypes.func,
-};
-
-Checkout.defaultProps = {
-  onClose: () => {},
 };
 
 export default Checkout;

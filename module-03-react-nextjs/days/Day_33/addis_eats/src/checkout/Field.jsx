@@ -1,7 +1,10 @@
 import { forwardRef } from "react";
 import PropTypes from "prop-types";
 
-const Field = forwardRef(function Field({ as: Component, id, label, error, ...props }, ref) {
+const Field = forwardRef(function Field(
+  { as: Component = "input", id, label, error, ...props },
+  ref
+) {
   const errorId = `${id}-error`;
 
   return (
@@ -28,11 +31,6 @@ Field.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   error: PropTypes.string,
-};
-
-Field.defaultProps = {
-  as: "input",
-  error: "",
 };
 
 export default Field;
