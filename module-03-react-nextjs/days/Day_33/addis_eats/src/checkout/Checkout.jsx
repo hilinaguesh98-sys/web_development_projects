@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 import { placeOrder } from "../api/orders.js";
 import { useCartStore } from "../cart/cartStore";
@@ -14,6 +15,7 @@ const initialForm = {
 };
 
 function Checkout({ onClose }) {
+  const navigate = useNavigate();
   const total = useCartStore((state) =>
     state.items.reduce((sum, item) => sum + item.price * item.quantity, 0)
   );
@@ -64,6 +66,7 @@ function Checkout({ onClose }) {
       await placeOrder(form);
       clear();
       onClose();
+      navigate("/");
     } catch (error) {
       const fieldErrors = error.fieldErrors || {};
       setServerErrors(fieldErrors);
