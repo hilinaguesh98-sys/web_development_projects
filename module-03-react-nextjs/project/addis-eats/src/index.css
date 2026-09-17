@@ -83,7 +83,26 @@ button { cursor: pointer; }
 .segmented-control button { padding: 8px 18px; border: 0; border-radius: 6px; background: transparent; font-size: .7rem; }
 .segmented-control button.active { background: var(--orange); color: white; }
 .favorite-image-wrap { position: relative; }
-.favorite-button { position: absolute; top: 9px; right: 9px; width: 25px; height: 25px; border: 0; border-radius: 50%; background: white; color: var(--orange); }
+.favorite-button {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 25px;
+  height: 25px;
+  
+ 
+  text-shadow: 0 0 0 #d94a3f, 0 0 0 #d94a3f;
+ 
+  font-size: 1.05rem;
+  line-height: 1;
+}
+.favorite-button.active {
+  
+  color: #e53935;
+  text-shadow: none;
+  box-shadow: inset 0 0 0 1px rgba(229,57,53,0.15);
+}
+.favorite-toggle.active { border-color: #e53935;  color: #e53935; }
 .orders-list { display: grid; gap: 14px; }
 .order-card { padding: 14px; }
 .order-card-top, .order-card-main, .order-card-actions { display: flex; justify-content: space-between; align-items: center; gap: 14px; }

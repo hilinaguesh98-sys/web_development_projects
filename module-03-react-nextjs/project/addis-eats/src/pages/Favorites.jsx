@@ -2,21 +2,26 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getDishes } from '../api/dishes';
 import { useCart } from '../cart/useCart';
-
-const FAVORITES_KEY = 'addisEatsFavorites';
+import { getFavoriteIds, toggleFavorite } from '../favorites/favorites';
 
 export default function Favorites() {
   const { addToCart } = useCart();
   const [dishes, setDishes] = useState([]);
 
   useEffect(() => {
-    const favoriteIds = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
-    getDishes().then((items) => setDishes(items.filter((item) => favoriteIds.includes(item.id))));
+    const syncFavorites = () => {
+      const favoriteIds = getFavoriteIds();
+      getDishes().then((items) => setDishes(items.filter((item) => favoriteIds.includes(item.id))));
+    };
+
+    syncFavorites();
+    window.addEventListener('addisEatsFavoritesUpdated', syncFavorites);
+
+    return () => window.removeEventListener('addisEatsFavoritesUpdated', syncFavorites);
   }, []);
 
   const removeFavorite = (id) => {
-    const favoriteIds = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
-    localStorage.setItem(FAVORITES_KEY, JSON.stringify(favoriteIds.filter((itemId) => itemId !== id)));
+    toggleFavorite(id);
     setDishes((current) => current.filter((dish) => dish.id !== id));
   };
 
