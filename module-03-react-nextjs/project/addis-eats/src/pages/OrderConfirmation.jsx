@@ -13,7 +13,7 @@ export default function OrderConfirmation() {
         <p>Thank you for your order. We are preparing your delicious feast.</p>
         <div className="confirmation-details">
           <div><span>Order Number</span><strong>#{order?.id ? String(order.id).slice(-4) : 'A12'}</strong></div>
-          <div><span>Estimated Delivery Time</span><strong className="accent-text">30–45 minutes</strong></div>
+          <div><span>Estimated Delivery Time</span><strong className="accent-text">10–15 seconds</strong></div>
           <div><span>Total Amount Paid</span><strong className="accent-text">{total || '1,580'} ETB</strong></div>
         </div>
         <div className="confirmation-actions"><Link to="/orders" className="primary-button">Track Order</Link><Link to="/menu" className="secondary-button">Back to Menu</Link></div>

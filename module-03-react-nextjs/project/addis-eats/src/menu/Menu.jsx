@@ -4,6 +4,23 @@ import { getDishes } from '../api/dishes';
 import DishCard from './dishcard';
 import { useCart } from '../cart/useCart';
 
+function DishCardSkeleton() {
+  return (
+    <article className="dish-card skeleton-card" aria-hidden="true">
+      <div className="skeleton-block skeleton-image" />
+      <div className="dish-card-content">
+        <div className="skeleton-block skeleton-title" />
+        <div className="skeleton-block skeleton-category" />
+        <div className="skeleton-block skeleton-description" />
+        <div className="skeleton-footer">
+          <div className="skeleton-block skeleton-price" />
+          <div className="skeleton-block skeleton-button" />
+        </div>
+      </div>
+    </article>
+  );
+}
+
 export default function MenuPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { addToCart } = useCart();
@@ -52,9 +69,16 @@ export default function MenuPage() {
 
   if (loading) {
     return (
-      <div className="container page-section center-content">
-        <div className="loading-spinner" aria-label="Loading menu" />
-        <p>Loading menu...</p>
+      <div className="container page-section" aria-busy="true">
+        <div className="menu-topbar">
+          <div>
+            <p className="eyebrow">Our menu</p>
+            <h1>Fresh favorites for every craving</h1>
+          </div>
+        </div>
+        <div className="dish-grid skeleton-grid">
+          {Array.from({ length: 6 }, (_, index) => <DishCardSkeleton key={index} />)}
+        </div>
       </div>
     );
   }

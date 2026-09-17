@@ -69,9 +69,9 @@ export default function Layout() {
       </main>
       <footer className="site-footer">
         <div className="container footer-grid">
-          <div><strong className="footer-brand">Addis<span>Eats</span></strong><p>Bringing the rich, authentic flavors of Ethiopia&apos;s finest kitchens straight to your doorstep. Warm hospitality meets modern convenience.</p></div>
+          <div><strong className="footer-brand">Addis<span>Eats</span></strong><p>Bringing the rich, authentic flavors of Ethiopia's finest kitchens straight to your doorstep.</p></div>
           <div><b>DISCOVER</b><a href="/menu">Popular Places</a><a href="/menu">Traditional Foods</a><a href="/menu">New Listings</a><a href="/menu">Special Offers</a></div>
-          <div><b>GET HELP</b><a href="/checkout">Contact Support</a><a href="/checkout">Delivery Areas</a><a href="/checkout">FAQs</a><a href="/checkout">Refund Policy</a></div>
+          <div><b>GET HELP</b><a href="/checkout">Contact Support</a><a href="/checkout">Delivery Areas</a></div>
         </div>
         <div className="container footer-bottom">© 2026 Addis Eats. All rights reserved.</div>
       </footer>

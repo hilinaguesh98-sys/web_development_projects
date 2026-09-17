@@ -19,7 +19,7 @@ export default function Home() {
       <section className="hero-section">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <h1>Hungry? We’ve got you covered.</h1>
+            <h1>Hungry? We've got you covered.</h1>
             <p className="hero-text">
               Delicious Ethiopian and international dishes from your favorite local restaurants straight to your door.
             </p>
@@ -33,7 +33,7 @@ export default function Home() {
       <section className="container section-block">
         <h3 className="craving-title">What are you craving?</h3>
         <div className="home-category-row">{categories.map((category) => <Link key={category} to={category === 'All' ? '/menu' : `/menu?category=${category.toLowerCase()}`} className={category === 'All' ? 'home-category active' : 'home-category'}>{category}</Link>)}</div>
-        <div className="section-heading-row"><h2>Popular Right Now</h2><Link to="/menu" className="text-link">View All Menu →</Link></div>
+        <div className="section-heading-row"><h2>Popular Dishes</h2><Link to="/menu" className="text-link">View All Menu →</Link></div>
 
         {loading ? (
           <p className="status-message">Loading specials...</p>

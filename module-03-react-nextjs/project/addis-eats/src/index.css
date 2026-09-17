@@ -85,6 +85,17 @@ button { cursor: pointer; }
 .dish-card { padding: 0; }
 .dish-image { width: 100%; height: 150px; object-fit: cover; border-radius: 10px 10px 0 0; }
 .dish-description { min-height: 38px; margin: 7px 0; color: var(--muted); font-size: .68rem; line-height: 1.4; }
+.skeleton-card { pointer-events: none; }
+.skeleton-block { position: relative; overflow: hidden; background: var(--border); }
+.skeleton-block::after { position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .35), transparent); content: ''; animation: skeleton-shimmer 1.4s ease-in-out infinite; transform: translateX(-100%); }
+.skeleton-image { height: 150px; }
+.skeleton-title { width: 70%; height: 13px; margin-bottom: 9px; border-radius: 4px; }
+.skeleton-category { width: 35%; height: 10px; border-radius: 4px; }
+.skeleton-description { width: 90%; height: 28px; margin: 12px 0 10px; border-radius: 4px; }
+.skeleton-footer { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; }
+.skeleton-price { width: 25%; height: 12px; border-radius: 4px; }
+.skeleton-button { width: 72px; height: 25px; border-radius: 7px; }
+@keyframes skeleton-shimmer { to { transform: translateX(100%); } }
 .menu-topbar { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 15px; }
 .menu-topbar h1, .simple-page h1 { margin: 0 0 4px; font-size: 1.7rem; }
 .search-wrap { width: min(340px, 100%); }
@@ -129,6 +140,9 @@ button { cursor: pointer; }
 .order-card-top { padding-bottom: 12px; border-bottom: 1px solid var(--border); font-size: .72rem; }
 .order-card-top span, .order-card-main small { color: var(--muted); font-size: .65rem; }
 .status-pill { padding: 5px 9px; border-radius: 5px; background: var(--orange-soft); color: var(--orange); font-size: .62rem; }
+.status-food-is-done { background: #fff4cc; color: #9a6900; }
+.status-being-delivered { background: #d6faeb; color: #087b53; }
+.status-delivered { background: #dce9ff; color: #2456a6; }
 .order-card-main { padding: 14px 0; }
 .order-card-main > div:last-child { display: grid; text-align: right; }
 .order-thumbnails { display: flex; align-items: center; gap: 7px; font-size: .7rem; }
@@ -187,6 +201,7 @@ button { cursor: pointer; }
   .hero-search button { padding: 8px 10px; font-size: .62rem; }
   .special-grid, .dish-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
   .dish-image { height: 120px; }
+  .skeleton-image { height: 120px; }
   .special-card img { height: 95px; }
   .page-content { padding-bottom: 68px; }
   .site-footer { display: none; }
