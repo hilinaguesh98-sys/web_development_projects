@@ -1,13 +1,22 @@
+import { useEffect } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import { useAuth } from './auth/useauth';
 import { useCart } from './cart/useCart';
+import { useThemeStore } from './state/themeStore';
 
 export default function Layout() {
   const { user, signOut } = useAuth();
   const { cartCount } = useCart();
+  const { theme, toggleTheme } = useThemeStore();
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+  }, [theme]);
 
   return (
     <div className="app-shell">
+      <a className="skip-link" href="#main-content">Skip to main content</a>
       <header className="site-header">
         <div className="container nav-bar">
           <Link to="/" className="brand-wrap">
@@ -28,6 +37,16 @@ export default function Layout() {
           </nav>
 
           <div className="nav-actions">
+            <button
+              type="button"
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+              aria-pressed={theme === 'dark'}
+            >
+              <span aria-hidden="true">{theme === 'light' ? '☾' : '☀'}</span>
+              <span>{theme === 'light' ? 'Dark' : 'Light'}</span>
+            </button>
             {user ? (
               <div className="user-chip">
                 <span className="user-avatar">{user.name.charAt(0).toUpperCase()}</span>
@@ -45,7 +64,7 @@ export default function Layout() {
         </div>
       </header>
 
-      <main className="page-content">
+      <main id="main-content" className="page-content">
         <Outlet />
       </main>
       <footer className="site-footer">
