@@ -47,6 +47,9 @@ export default function Layout() {
               <span aria-hidden="true">{theme === 'light' ? '☾' : '☀'}</span>
               <span>{theme === 'light' ? 'Dark' : 'Light'}</span>
             </button>
+            <Link to="/admin/login" className="primary-button small-button">
+              Admin
+            </Link>
             {user ? (
               <div className="user-chip">
                 <span className="user-avatar">{user.name.charAt(0).toUpperCase()}</span>
@@ -75,7 +78,7 @@ export default function Layout() {
         </div>
         <div className="container footer-bottom">© 2026 Addis Eats. All rights reserved.</div>
       </footer>
-      <nav className="mobile-nav" aria-label="Mobile navigation"><NavLink to="/" end>⌂<small>Home</small></NavLink><NavLink to="/menu">▥<small>Menu</small></NavLink><NavLink to="/favorites">♡<small>Favorites</small></NavLink><NavLink to="/cart">🛒<small>Cart</small></NavLink><NavLink to="/orders">♙<small>Account</small></NavLink></nav>
+      <nav className="mobile-nav" aria-label="Mobile navigation"><NavLink to="/" end>⌂<small>Home</small></NavLink><NavLink to="/menu">▥<small>Menu</small></NavLink><NavLink to="/favorites">♡<small>Favorites</small></NavLink><NavLink to="/cart">🛒<small>Cart</small></NavLink><NavLink to="/orders">♙<small>Account</small></NavLink><NavLink to="/admin/login">⚙<small>Admin</small></NavLink></nav>
     </div>
   );
 }

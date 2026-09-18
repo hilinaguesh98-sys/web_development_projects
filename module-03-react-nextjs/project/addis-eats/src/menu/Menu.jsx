@@ -35,10 +35,10 @@ export default function MenuPage() {
   useEffect(() => {
     getDishes()
       .then((data) => {
-        setDishes(data);
+        setDishes(data.filter((dish) => dish.inStock !== false));
         setError('');
       })
-      .catch(() => setError('We could not load the menu right now. Please try again later.'))
+      .catch(() => setError('We could not load the menu right now. '))
       .finally(() => setLoading(false));
   }, []);
 
@@ -104,7 +104,7 @@ export default function MenuPage() {
             type="text"
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}
-            placeholder="Search for food, cuisines..."
+            placeholder="Search for food"
             aria-label="Search dishes"
           />
         </div>

@@ -12,7 +12,10 @@ export async function getDishes() {
 
   const dishes = await response.json();
 
-  return dishes.map((dish) => {
+  const savedDishes = JSON.parse(localStorage.getItem('addisEatsDishes') || 'null');
+  const sourceDishes = Array.isArray(savedDishes) ? savedDishes : dishes;
+
+  return sourceDishes.map((dish) => {
     const assetKey = `../assets/${dish.image.split('/').pop()}`;
     return {
       ...dish,

@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     getDishes()
-      .then((data) => setDishes(data.slice(0, 4)))
+      .then((data) => setDishes(data.filter((dish) => dish.inStock !== false).slice(0, 4)))
       .finally(() => setLoading(false));
   }, []);
 
@@ -25,7 +25,7 @@ export default function Home() {
             </p>
           </div>
           <form className="hero-search" onSubmit={(event) => { event.preventDefault(); window.location.href = '/menu'; }}>
-            <span>⌕</span><input aria-label="Search restaurants and dishes" placeholder="Search for restaurants, dishes, or cuisines..." /><button type="submit">Find Food</button>
+            <span>⌕</span><input aria-label="Search restaurants and dishes" placeholder="Search for dishes" /><button type="submit">Find Food</button>
           </form>
         </div>
       </section>

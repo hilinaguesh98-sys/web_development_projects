@@ -10,6 +10,12 @@ import Favorites from './pages/Favorites';
 import Home from './pages/Home';
 import OrderConfirmation from './pages/OrderConfirmation';
 import Orders from './pages/Orders';
+import AdminLogin from './admin/AdminLogin';
+import AdminLayout from './admin/AdminLayout';
+import Dashboard from './admin/Dashboard';
+import DishManager from './admin/DishManager';
+import OrderManager from './admin/OrderManager';
+import RequireAdmin from './admin/RequireAdmin';
 
 export default function App() {
   return (
@@ -17,6 +23,14 @@ export default function App() {
       <AuthProvider>
         <CartProvider>
           <Routes>
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route element={<RequireAdmin />}>
+              <Route path="/admin" element={<AdminLayout />}>
+                <Route index element={<Dashboard />} />
+                <Route path="dishes" element={<DishManager />} />
+                <Route path="orders" element={<OrderManager />} />
+              </Route>
+            </Route>
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/menu" element={<MenuPage />} />

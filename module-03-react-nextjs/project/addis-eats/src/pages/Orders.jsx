@@ -5,8 +5,12 @@ import { useCart } from '../cart/useCart';
 const PREPARING_DURATION = 5 * 1000;
 const READY_DURATION = 10* 1000;
 const DELIVERING_DURATION = 15 * 1000;
+const formatOrderNumber = (id) => `AE${String(id).slice(-4)}`;
 
-function getOrderStatus(createdAt, now) {
+function getOrderStatus(order, now) {
+  if (order.status) return order.status;
+
+  const createdAt = order.createdAt;
   const elapsed = now - new Date(createdAt).getTime();
 
   if (elapsed < PREPARING_DURATION) {
@@ -25,7 +29,11 @@ function getOrderStatus(createdAt, now) {
 }
 
 function isActiveStatus(status) {
-  return status !== 'Delivered';
+  return status !== 'Delivered' && status !== 'Cancelled';
+}
+
+function readOrders() {
+  return JSON.parse(localStorage.getItem('addisEatsOrders') || '[]').reverse();
 }
 
 function addOrderToCart(order, addToCart) {
@@ -37,7 +45,7 @@ function addOrderToCart(order, addToCart) {
 }
 
 export default function Orders() {
-  const [orders] = useState(() => JSON.parse(localStorage.getItem('addisEatsOrders') || '[]').reverse());
+  const [orders, setOrders] = useState(readOrders);
   const [now, setNow] = useState(() => Date.now());
   const [selectedTab, setSelectedTab] = useState('active');
   const navigate = useNavigate();
@@ -48,9 +56,18 @@ export default function Orders() {
     return () => window.clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const handleStorageChange = (event) => {
+      if (event.key === 'addisEatsOrders') setOrders(readOrders());
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
+
   const visibleOrders = useMemo(
     () => orders.filter((order) => {
-      const status = getOrderStatus(order.createdAt, now);
+      const status = getOrderStatus(order, now);
       return selectedTab === 'active' ? isActiveStatus(status) : !isActiveStatus(status);
     }),
     [now, orders, selectedTab],
@@ -69,11 +86,11 @@ export default function Orders() {
       ) : (
         <div className="orders-list">
           {visibleOrders.map((order) => {
-            const status = getOrderStatus(order.createdAt, now);
+            const status = getOrderStatus(order, now);
 
             return (
               <article className="order-card" key={order.id}>
-                <div className="order-card-top"><strong>Order #{String(order.id).slice(-4)}</strong><span>Placed on: {new Date(order.createdAt).toLocaleDateString()}</span><b className={`status-pill status-${status.toLowerCase().replaceAll(' ', '-')}`} aria-live="polite">{status}</b></div>
+                <div className="order-card-top"><strong>Order {formatOrderNumber(order.id)}</strong><span>Placed on: {new Date(order.createdAt).toLocaleDateString()}</span><b className={`status-pill status-${status.toLowerCase().replaceAll(' ', '-')}`} aria-live="polite">{status}</b></div>
                 <div className="order-card-main"><div className="order-thumbnails">{order.items.slice(0, 3).map((item) => <img key={item.id} src={item.image} alt="" />)}<strong>{order.items[0]?.name} {order.items.length > 1 ? `+ ${order.items.length - 1} other items` : ''}</strong></div><div><small>Total Amount</small><strong>{order.total} ETB</strong></div></div>
                 <div className="order-card-actions"><button type="button" className="text-link">View Details & Receipt</button><button type="button" className="primary-button small-button" onClick={() => handleReorder(order)}>Reorder</button></div>
               </article>

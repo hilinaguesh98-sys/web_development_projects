@@ -11,7 +11,7 @@ export default function Favorites() {
   useEffect(() => {
     const syncFavorites = () => {
       const favoriteIds = getFavoriteIds();
-      getDishes().then((items) => setDishes(items.filter((item) => favoriteIds.includes(item.id))));
+      getDishes().then((items) => setDishes(items.filter((item) => item.inStock !== false && favoriteIds.includes(item.id))));
     };
 
     syncFavorites();
@@ -37,7 +37,7 @@ export default function Favorites() {
             <article key={dish.id} className="special-card favorite-card">
               <div className="favorite-image-wrap">
                 <img src={dish.image} alt={dish.name} />
-                <button type="button" className="favorite-button active" onClick={() => removeFavorite(dish.id)} aria-label={`Remove ${dish.name} from favorites`}>♥</button>
+                <button type="button" className="favorite-button active" onClick={() => removeFavorite(dish.id)} aria-label={`Remove ${dish.name} from favorites`}>❤️</button>
               </div>
               <div className="special-card-body">
                 <h3>{dish.name}</h3>
