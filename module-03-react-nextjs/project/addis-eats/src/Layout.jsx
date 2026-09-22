@@ -72,13 +72,33 @@ export default function Layout() {
       </main>
       <footer className="site-footer">
         <div className="container footer-grid">
-          <div><strong className="footer-brand">Addis<span>Eats</span></strong><p>Bringing the rich, authentic flavors of Ethiopia's finest kitchens straight to your doorstep.</p></div>
-          <div><b>DISCOVER</b><a href="/menu">Popular Places</a><a href="/menu">Traditional Foods</a><a href="/menu">New Listings</a><a href="/menu">Special Offers</a></div>
-          <div><b>GET HELP</b><a href="/checkout">Contact Support</a><a href="/checkout">Delivery Areas</a></div>
+          <div>
+            <strong className="footer-brand">Addis<span>Eats</span></strong>
+            <p>Bringing the rich, authentic flavors of Ethiopia's finest kitchens straight to your doorstep.</p>
+          </div>
+          <div>
+            <b>DISCOVER</b>
+            <a href="/menu">Popular Places</a>
+            <a href="/menu">Traditional Foods</a>
+            <a href="/menu">New Listings</a>
+            <a href="/menu">Special Offers</a>
+          </div>
+          <div>
+            <b>GET HELP</b>
+            <a href="/checkout">Contact Support</a>
+            <a href="/checkout">Delivery Areas</a>
+          </div>
         </div>
-        <div className="container footer-bottom">© 2026 Addis Eats. All rights reserved.</div>
+        
       </footer>
-      <nav className="mobile-nav" aria-label="Mobile navigation"><NavLink to="/" end>⌂<small>Home</small></NavLink><NavLink to="/menu">▥<small>Menu</small></NavLink><NavLink to="/favorites">♡<small>Favorites</small></NavLink><NavLink to="/cart">🛒<small>Cart</small></NavLink><NavLink to="/orders">♙<small>Account</small></NavLink><NavLink to="/admin/login">⚙<small>Admin</small></NavLink></nav>
+      <nav className="mobile-nav" aria-label="Mobile navigation">
+        <NavLink to="/" end>⌂<small>Home</small></NavLink>
+        <NavLink to="/menu">▥<small>Menu</small></NavLink>
+        <NavLink to="/favorites">♡<small>Favorites</small></NavLink>
+        <NavLink to="/cart">🛒<small>Cart</small></NavLink>
+        <NavLink to="/orders">♙<small>Account</small></NavLink>
+        <NavLink to="/admin/login">⚙<small>Admin</small></NavLink>
+      </nav>
     </div>
   );
 }

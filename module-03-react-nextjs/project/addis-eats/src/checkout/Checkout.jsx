@@ -131,7 +131,7 @@ export default function Checkout() {
                 type="tel"
                 value={loginForm.phone}
                 onChange={(e) => setLoginForm({ ...loginForm, phone: e.target.value })}
-                placeholder="0912345678"
+                placeholder="0911456830"
               />
               {loginErrors.phone && <span className="error-message">{loginErrors.phone}</span>}
             </div>
@@ -198,7 +198,7 @@ export default function Checkout() {
                 rows="4"
                 value={form.instructions}
                 onChange={(e) => setForm({ ...form, instructions: e.target.value })}
-                placeholder="e.g., gate code or delivery note"
+                placeholder="Any special instructions for delivery (optional)"
               />
             </div>
 

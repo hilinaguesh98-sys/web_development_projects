@@ -10,7 +10,7 @@ export default function Dashboard() {
     const counts = orders.flatMap((order) => order.items || []).reduce((result, item) => ({ ...result, [item.name]: (result[item.name] || 0) + item.quantity }), {});
     return dishes.map((dish) => ({ ...dish, count: counts[dish.name] || 0 })).sort((first, second) => second.count - first.count).slice(0, 5);
   }, [dishes, orders]);
-  const statuses = orders.reduce((result, order) => { const status = order.status || 'Pending'; return { ...result, [status]: (result[status] || 0) + 1 }; }, {});
+  const statuses = orders.reduce((result, order) => { const status = order.status || 'delivered'; return { ...result, [status]: (result[status] || 0) + 1 }; }, {});
 
   return (
     <section className="admin-section">
