@@ -1,0 +1,70 @@
+.form-error {
+  margin: -10px 0 15px;
+  color: #d14332;
+  font-size: 13px;
+}
+
+.error-message {
+  margin: 10px 0 20px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  background: #fff0ed;
+  color: #c43e2d;
+  font-size: 14px;
+}
+
+.success-message {
+  margin: 10px 0 20px;
+  padding: 12px 15px;
+  border-radius: 8px;
+  background: #eaf7ee;
+  color: #18743f;
+  font-size: 14px;
+}
+
+.checkout-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 30px;
+  border: 1px solid #e1e7e2;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.06);
+}
+
+.checkout-card label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #26332b;
+}
+
+.checkout-card input,
+.checkout-card textarea,
+.checkout-card select {
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 13px 14px;
+  border: 1px solid #d9dfda;
+  border-radius: 9px;
+  outline: none;
+  background: white;
+  font: inherit;
+}
+
+.checkout-card input:focus,
+.checkout-card textarea:focus,
+.checkout-card select:focus {
+  border-color: #16834b;
+}
+
+.checkout-card button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.page-description {
+  margin-top: 10px;
+  color: #6b756e;
+}
