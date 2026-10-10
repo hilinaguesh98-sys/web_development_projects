@@ -6,7 +6,15 @@ import { getSession } from '../lib/session'
 
 const manrope = Manrope({ subsets: ['latin'], display: 'swap', variable: '--font-manrope' })
 
-export const metadata = { title:'AddisEats', description:'Ethiopian food delivery platform' }
+export const metadata = {
+  title: 'AddisEats',
+  description: 'Ethiopian food delivery platform',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
+}
 
 export default async function RootLayout({ children }) {
   const session = await getSession()

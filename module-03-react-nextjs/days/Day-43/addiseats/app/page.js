@@ -20,7 +20,7 @@ export default function HomePage() {
 
   return <>
     <section className="hero">
-      <Image src={heroImage} alt="Ethiopian dishes ready to serve" fill priority sizes="100vw" className="hero-image"/>
+      <Image src={heroImage} alt="Ethiopian dishes ready to serve" fill priority fetchPriority="high" sizes="100vw" className="hero-image"/>
       <div className="hero-overlay">
         <div className="container hero-content">
           <p className="hero-kicker">AUTHENTIC FLAVORS · FAST DELIVERY</p>

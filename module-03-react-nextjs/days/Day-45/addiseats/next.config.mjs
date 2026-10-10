@@ -1,3 +1,15 @@
+import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 /** @type {import('next').NextConfig} */
-const nextConfig = { reactStrictMode: true }
+const projectRoot = dirname(fileURLToPath(import.meta.url))
+
+const nextConfig = {
+  reactStrictMode: true,
+  outputFileTracingRoot: projectRoot,
+  turbopack: {
+    root: projectRoot
+  }
+}
+
 export default nextConfig

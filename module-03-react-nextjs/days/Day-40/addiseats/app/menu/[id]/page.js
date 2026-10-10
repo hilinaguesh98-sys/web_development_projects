@@ -12,7 +12,8 @@ export default function DishPage() {
   const [added, setAdded] = useState(false)
 
   useEffect(() => setDish(getDish(id) || null), [id])
-  if (!dish) return <div className="page-wrap container"><div className="empty"><h2>Dish not found</h2><Link className="orange-button" href="/menu">Back to Menu</Link></div></div>
+  if (!dish) return <div className="page-wrap container"><div className="empty"><h2>Dish not found</h2>
+  <Link className="orange-button" href="/menu">Back to Menu</Link></div></div>
 
   const add = () => {
     const cart = JSON.parse(localStorage.getItem('addisEatsCart') || '[]')
@@ -24,5 +25,19 @@ export default function DishPage() {
     setAdded(true)
   }
 
-  return <div className="page-wrap container"><Link className="back" href="/menu">← Back to Menu</Link><div className="detail"><div className="detail-image"><img src={getImageUrl(dish.image)} alt={dish.imageAlt}/></div><div className="detail-copy"><span className="category-pill">{dish.category}</span><h1>{dish.name}</h1><div className="rating">★ 4.8 <span>•</span> Customer favorite</div><p>{dish.description}</p><div className="detail-price">{dish.price.toLocaleString()} ETB</div><h4>Ingredients</h4><div className="ingredients">{dish.ingredients.map((item) => <span className="ingredient" key={item}>{item}</span>)}</div><div className="qty big"><button onClick={() => setQty(Math.max(1, qty - 1))}>−</button><strong>{qty}</strong><button onClick={() => setQty(qty + 1)}>+</button></div><button className="checkout-button full" onClick={add}>{added ? 'Added to Cart ✓' : `Add to Cart · ${(dish.price * qty).toLocaleString()} ETB`}</button></div></div></div>
+  return <div className="page-wrap container">
+    <Link className="back" href="/menu">← Back to Menu</Link>
+    <div className="detail"><div className="detail-image">
+      <img src={getImageUrl(dish.image)} alt={dish.imageAlt}/></div>
+      <div className="detail-copy"><span className="category-pill">{dish.category}</span>
+      <h1>{dish.name}</h1>
+      <div className="rating">★ 4.8 <span>•</span> Customer favorite</div>
+      <p>{dish.description}</p><div className="detail-price">{dish.price.toLocaleString()} ETB</div>
+      <h4>Ingredients</h4>
+      <div className="ingredients">{dish.ingredients.map((item) => <span className="ingredient" key={item}>{item}</span>)}</div>
+      <div className="qty big"><button onClick={() => setQty(Math.max(1, qty - 1))}>−</button>
+      <strong>{qty}</strong><button onClick={() => setQty(qty + 1)}>+</button></div>
+      <button className="checkout-button full" onClick={add}>
+        {added ? 'Added to Cart ✓' : `Add to Cart · ${(dish.price * qty).toLocaleString()} ETB`}</button>
+        </div></div></div>
 }

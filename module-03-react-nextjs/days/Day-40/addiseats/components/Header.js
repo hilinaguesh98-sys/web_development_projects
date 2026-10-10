@@ -44,8 +44,8 @@ export default function Header() {
           ))}
         </nav>
         <div className="header-actions">
-          <button className="header-icon" aria-label="Search">⌕</button>
-          <Link href="/cart" className="cart-link" aria-label="Cart">♧{cartCount > 0 && <span>{cartCount}</span>}</Link>
+          <button className="header-icon" aria-label="Search"></button>
+          <Link href="/cart" className="cart-link" aria-label="Cart">cart♧{cartCount > 0 && <span>{cartCount}</span>}</Link>
           <button className="mobile-menu" onClick={() => setOpen((value) => !value)} aria-label="Open menu">☰</button>
         </div>
       </div>

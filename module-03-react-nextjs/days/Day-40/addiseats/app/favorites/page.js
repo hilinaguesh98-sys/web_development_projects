@@ -17,5 +17,10 @@ export default function FavoritesPage() {
     return () => { window.removeEventListener('addis-favorites-updated', load); window.removeEventListener('storage', load) }
   }, [])
   const list = dishes.filter((dish) => ids.includes(dish.id))
-  return <div className="page-wrap container"><div className="page-title"><p className="eyebrow">SAVED FOR LATER</p><h1>My Favorites</h1><p>Your absolute favorite meals saved in one convenient place for easy reordering.</p></div>{list.length ? <div className="dish-grid">{list.map((dish) => <DishCard key={dish.id} dish={dish}/>)}</div> : <div className="empty"><div className="empty-icon">♡</div><h2>No favorites yet</h2><p className="muted">Tap the heart on a dish to save it here.</p><Link className="orange-button" href="/menu">Browse Menu</Link></div>}</div>
+  return <div className="page-wrap container"><div className="page-title"><p className="eyebrow">SAVED FOR LATER</p>
+  <h1>My Favorites</h1><p>Your absolute favorite meals saved in one convenient place for easy reordering.</p>
+  </div>{list.length ? <div className="dish-grid">{list.map((dish) => <DishCard key={dish.id} dish={dish}/>)}</div> 
+  : <div className="empty"><div className="empty-icon">🤍</div><h2>No favorites yet</h2>
+  <p className="muted">Tap the heart on a dish to save it here.</p>
+  <Link className="orange-button" href="/menu">Browse Menu</Link></div>}</div>
 }

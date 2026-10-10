@@ -24,6 +24,29 @@ export default function CartClient() {
     setCart(next)
     window.dispatchEvent(new Event('addis-cart-updated'))
   }
-  if (!rows.length) return <div className="empty cart-empty"><div className="empty-icon">🛒</div><h2>Your cart is empty</h2><p className="muted">Add something delicious from the menu.</p><Link className="orange-button" href="/menu">Browse Menu</Link></div>
-  return <div className="cart-layout"><section className="cart-main"><div className="section-title-row"><div><p className="eyebrow">READY TO ORDER?</p><h1>Your Cart</h1></div><span>{rows.reduce((sum, row) => sum + row.qty, 0)} items</span></div><div className="cart-list">{rows.map(({ dish, qty }) => <div className="cart-row" key={dish.id}><img src={getImageUrl(dish.image)} alt={dish.imageAlt}/><div className="cart-copy"><strong>{dish.name}</strong><span>{dish.category}</span><b>{dish.price.toLocaleString()} ETB</b></div><div className="qty"><button onClick={() => update(dish.id, qty - 1)} aria-label="Decrease quantity">−</button><span>{qty}</span><button onClick={() => update(dish.id, qty + 1)} aria-label="Increase quantity">+</button></div><button className="remove-item" onClick={() => update(dish.id, 0)} aria-label={`Remove ${dish.name}`}>×</button></div>)}</div><Link href="/menu" className="continue">← Continue Shopping</Link></section><aside className="summary-card"><p className="eyebrow">YOUR ORDER</p><h2>Order Summary</h2><div className="summary-line"><span>Subtotal</span><b>{subtotal.toLocaleString()} ETB</b></div><div className="summary-line"><span>Delivery Fee</span><b>{delivery} ETB</b></div><div className="summary-total"><span>Total</span><b>{total.toLocaleString()} ETB</b></div><Link href="/cart/checkout" className="checkout-button">Proceed to Checkout</Link></aside></div>
+  if (!rows.length) return <div className="empty cart-empty"><div className="empty-icon"></div><h2>Your cart is empty</h2><p className="muted">Add something delicious from the menu.</p><Link className="orange-button" href="/menu">Browse Menu</Link></div>
+  return <div className="cart-layout">
+    <section className="cart-main">
+      <div className="section-title-row"><div>
+        <p className="eyebrow">READY TO ORDER?</p>
+        <h1>Your Cart</h1>
+        </div><span>{rows.reduce((sum, row) => sum + row.qty, 0)}
+           items</span>
+           </div><div className="cart-list">{rows.map(({ dish, qty }) =>
+            <div className="cart-row" key={dish.id}><img src={getImageUrl(dish.image)} alt={dish.imageAlt}/>
+            <div className="cart-copy"><strong>{dish.name}</strong>
+            <span>{dish.category}</span>
+            <b>{dish.price.toLocaleString()} ETB</b></div><div className="qty">
+              <button onClick={() => update(dish.id, qty - 1)} aria-label="Decrease quantity">−</button>
+              <span>{qty}</span><button onClick={() => update(dish.id, qty + 1)} aria-label="Increase quantity">+</button></div>
+              <button className="remove-item" onClick={() => update(dish.id, 0)} aria-label={`Remove ${dish.name}`}>×</button></div>)}
+              </div><Link href="/menu" className="continue">← Continue Shopping</Link></section><aside className="summary-card">
+                <p className="eyebrow">YOUR ORDER</p>
+                <h2>Order Summary</h2><div className="summary-line">
+                  <span>Subtotal</span><b>{subtotal.toLocaleString()} ETB</b>
+                  </div><div className="summary-line"><span>Delivery Fee</span>
+                  <b>{delivery} ETB</b></div><div className="summary-total">
+                    <span>Total</span><b>{total.toLocaleString()} ETB</b></div>
+                    <Link href="/cart/checkout" className="checkout-button">Proceed to Checkout</Link>
+                    </aside></div>
 }

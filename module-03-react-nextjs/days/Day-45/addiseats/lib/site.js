@@ -1,3 +1,5 @@
+import metaImage from '../app/assets/meta.jpg'
+
 const configuredSiteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
   process.env.VERCEL_PROJECT_PRODUCTION_URL ||
@@ -20,9 +22,9 @@ export function createOpenGraphMetadata(title, description, path = '/') {
     description,
     url: absoluteUrl(path),
     images: [{
-      url: absoluteUrl('/addiseats-food.jpg'),
-      width: 1280,
-      height: 720,
+      url: absoluteUrl(metaImage.src),
+      width: metaImage.width,
+      height: metaImage.height,
       alt: 'Addis Eats Ethiopian food delivery',
     }],
   }

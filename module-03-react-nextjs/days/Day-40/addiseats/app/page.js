@@ -25,7 +25,7 @@ export default function HomePage() {
           <p className="hero-copy">Delicious Ethiopian and international dishes from your<br/>favorite local restaurants delivered straight to your door.</p>
           <div className="search-box">
             <span>⌕</span>
-            <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search for restaurants, dishes, or cuisines..." />
+            <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search for dishes..." />
             <button type="button" onClick={() => document.getElementById('popular')?.scrollIntoView({ behavior: 'smooth' })}>Find Food</button>
           </div>
         </div>
