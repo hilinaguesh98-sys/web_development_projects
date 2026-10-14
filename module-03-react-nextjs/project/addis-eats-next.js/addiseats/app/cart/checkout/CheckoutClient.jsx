@@ -12,7 +12,7 @@ export default function CheckoutClient() {
   const submitGuard = useRef(false)
   const requestRef = useRef(null)
   const [cart, setCart] = useState([])
-  const [form, setForm] = useState({ name:'', phone:'', neighborhood:'', address:'' })
+  const [form, setForm] = useState({ name:'', phone:'', neighborhood:'' })
   const [error, setError] = useState('')
   const [pending, setPending] = useState(false)
 
@@ -98,7 +98,6 @@ export default function CheckoutClient() {
           <strong>{DELIVERY_ORIGIN.name} <span aria-hidden="true">→</span> {deliveryLocation?.name || 'Choose a delivery area'}</strong>
           <small>Area-level route preview; the pin marks an approximate neighbourhood centre.</small>
         </div>
-        <label>Delivery Address<textarea autoComplete="street-address" value={form.address} onChange={(event) => setForm({ ...form, address:event.target.value })} placeholder="Street, building, or nearby landmark" required/></label>
         <button className="checkout-button full" type="submit" disabled={pending}>{pending ? 'Placing Order…' : `Place Order · ${total.toLocaleString()} ETB`}</button>
       </form>
       <aside className="checkout-note">

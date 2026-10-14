@@ -15,9 +15,8 @@ export async function placeOrder(input, idempotencyKey) {
 
   const name = String(input?.name || '').trim()
   const phone = String(input?.phone || '').trim()
-  const address = String(input?.address || '').trim()
   const neighborhood = String(input?.neighborhood || '').trim()
-  if (!name || !phone || !address || !neighborhood) return { error: 'Name, phone, neighbourhood and address are required.' }
+  if (!name || !phone || !neighborhood) return { error: 'Name, phone and neighbourhood are required.' }
   const deliveryLocation = getDeliveryLocation(neighborhood)
   if (!deliveryLocation) return { error: 'Choose a delivery area from the available locations.' }
   if (!Array.isArray(input?.items) || input.items.length === 0) return { error: 'Your cart is empty.' }
@@ -31,7 +30,6 @@ export async function placeOrder(input, idempotencyKey) {
         items,
         name,
         phone,
-        address,
         neighborhood,
         deliveryCoordinates: deliveryLocation,
         originCoordinates: DELIVERY_ORIGIN,
@@ -48,9 +46,9 @@ export async function placeOrder(input, idempotencyKey) {
 
 export async function updateOrderStatus(orderId, status) {
   const session = await getSession()
-  if (!session || session.role !== 'staff') return { error: 'Only staff can update order status.' }
-  if (typeof orderId !== 'string' || !orderId.trim() || !ORDER_STATUSES.includes(status)) {
-    return { error: 'Invalid order or status.' }
+  if (!session || session.role !== 'staff') return { error: 'Only staff can cancel orders.' }
+  if (typeof orderId !== 'string' || !orderId.trim() || status !== 'Cancelled' || !ORDER_STATUSES.includes(status)) {
+    return { error: 'Staff can only cancel orders.' }
   }
 
   let order

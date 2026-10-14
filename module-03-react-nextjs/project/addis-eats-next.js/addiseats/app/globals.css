@@ -164,6 +164,8 @@ body{margin:0;
 .auth-panel{width:min(440px,100%);margin:28px auto;background:#fff;border:1px solid #e5e5e5;border-radius:6px;padding:24px}
 .auth-panel h1{font-size:24px;margin:0}
 .auth-copy{color:#858b8e;font-size:12px;margin:7px 0 18px}
+.google-signin-button{display:flex;justify-content:center;min-height:40px}
+.auth-divider{text-align:center;color:#858b8e;font-size:12px;margin:14px 0}
 .auth-form{display:grid;gap:13px}
 .auth-form .auth-error{min-height:34px;margin:0;visibility:hidden}
 .auth-form .auth-error.has-error{visibility:visible}
@@ -220,3 +222,169 @@ body{margin:0;
 .chart-data-table th,.chart-data-table td{padding:10px 12px}
 @keyframes skeleton-shimmer{0%{background-position:100% 0}100%{background-position:0 0}}
 @media(max-width:700px){.orders-table-section{padding:10px}.orders-table-toolbar{align-items:flex-start;flex-direction:column}.semantic-orders-table{font-size:12px}.semantic-orders-table th,.semantic-orders-table td{padding:11px 9px}.pagination{align-items:flex-start;flex-direction:column}.dashboard-summary{grid-template-columns:1fr}.dashboard-summary section{padding:14px}.dashboard-summary strong{font-size:21px}.dashboard-chart-panel{padding:12px}.chart-heading{flex-direction:column}.chart-canvas{height:300px}}
+
+.header{height:52px;background:#fff}
+.header-inner{width:min(1000px,90%)}
+.logo{font-size:18px;color:#263448}
+.header .mobile-menu{display:none}
+.desktop-nav{gap:30px;margin-right:34px}
+.desktop-nav a{padding:17px 0;font-size:12px}
+.header-actions{gap:10px}
+.header-icon,.cart-link{display:none}
+.header .theme-toggle,.header .auth-button{height:29px;min-height:29px;border:1px solid #e2e6eb;border-radius:7px;background:#fff;color:#263448;padding:0 10px;font-size:11px}
+.theme-toggle span{margin-right:3px}
+.header .auth-button{display:inline-flex;align-items:center;justify-content:center;background:#ff690b;border-color:#ff690b;color:#fff;font-weight:700}
+.nav-cart-count{display:inline-grid;place-items:center;min-width:15px;height:15px;margin-left:4px;padding:0 3px;border-radius:50%;background:#ff690b;color:#fff;font-size:9px}
+.hero{height:242px}
+.hero-overlay{background:linear-gradient(90deg,rgba(0,0,0,.83),rgba(0,0,0,.52),rgba(0,0,0,.2))}
+.hero-content{height:100%;display:flex;align-items:center;justify-content:space-between;gap:30px;padding-top:0}
+.hero-copy-block{max-width:49%}
+.hero h1{font-size:48px;line-height:1.08;letter-spacing:-1.6px;margin:0 0 14px}
+.hero-copy{font-size:14px;line-height:1.45;margin:0;color:#f1f1f1}
+.search-box{width:47%;height:43px;border-radius:9px}
+.search-box button,.orange-button,.checkout-button,.dish-bottom button,.track-button{background:#ff690b;border-radius:7px}
+.search-box button{height:35px}
+.home-section{padding:19px 0 31px}
+.craving{font-size:16px;line-height:1.2;font-weight:600;color:#263448;margin:0 0 9px}
+.chips{gap:9px;margin-bottom:19px}
+.chips button{border-radius:7px;padding:7px 13px;font-size:11px;color:#344258}
+.home-section .chips button{min-height:29px}
+.chips button.selected{background:#ff690b;border-color:#ff690b}
+.section-heading{align-items:center;margin-bottom:7px}
+.section-heading h2{font-size:24px;letter-spacing:-.5px;color:#263448}
+.section-heading a{font-size:11px;font-weight:600}
+.home-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.dish-card{border-color:#e5e9ef;border-radius:8px;box-shadow:0 4px 13px #1628400a}
+.dish-image{height:102px}
+.dish-card-home .dish-image img,.dish-card-menu .dish-image img,.dish-card-favorites .dish-image img{object-fit:cover}
+.dish-card-home .heart,.dish-card-menu .dish-tag{display:none}
+.dish-card-home .dish-info,.dish-card-menu .dish-info{display:block;padding:8px 10px 0}
+.dish-card-home .dish-title,.dish-card-menu .dish-title{display:block}
+.dish-card-home .dish-title strong,.dish-card-menu .dish-title strong{display:block;font-size:11px;line-height:1.35;color:#25334a}
+.dish-card-home .dish-description,.dish-card-menu .dish-description{height:auto;margin-top:4px;font-size:10px;line-height:1.3;color:#8793a4}
+.dish-card-home .dish-bottom,.dish-card-menu .dish-bottom,.dish-card-favorites .dish-bottom{margin:7px 10px 9px}
+.dish-card-home .dish-bottom>strong,.dish-card-menu .dish-bottom>strong,.dish-card-favorites .dish-bottom>strong{font-size:11px;font-weight:600;color:#263448}
+.dish-card-home .dish-bottom>a{font-size:10px;color:#263448}
+.home-grid .dish-card-home .dish-bottom{padding-bottom:0}
+.dish-card-menu .dish-bottom button,.dish-card-favorites .dish-bottom button{font-size:9px;padding:6px 9px}
+.footer{padding:25px 0 16px}
+.footer-inner{width:min(1100px,86%);grid-template-columns:2fr 1fr 1fr;gap:60px}
+.footer-logo{font-size:16px;margin-bottom:8px}
+.footer p,.footer-inner>div:not(:first-child) a{font-size:10px;line-height:1.55}
+.footer h4{font-size:10px;margin-bottom:8px}
+.footer-inner>div:not(:first-child) a{margin-bottom:5px}
+.footer-bottom{display:none}
+.page-wrap{min-height:unset}
+.favorites-page{width:86%;padding:24px 0 28px;min-height:unset}
+.favorites-page .page-title{margin-bottom:0}
+.favorites-page .page-title h1{font-size:21px;color:#263448}
+.favorites-page .page-title>p:not(.eyebrow){font-size:11px;margin-top:4px}
+.favorites-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:820px}
+.dish-card-favorites .dish-image{height:86px}
+.dish-card-favorites .dish-image .heart{width:24px;height:24px;min-width:24px;min-height:24px;right:7px;top:7px;color:#fff;background:#ff4354;font-size:14px}
+.dish-card-favorites .heart.liked{color:#fff}
+.dish-card-favorites .dish-info{display:block;padding:7px 9px 0}
+.dish-card-favorites .dish-title strong{font-size:11px;color:#263448}
+.dish-card-favorites .dish-description{display:none}
+.favorites-grid .dish-card-favorites .dish-bottom{margin:7px 9px 0;padding-bottom:0}
+.dish-card-favorites .dish-bottom>strong{color:#dd690f}
+.menu-page{padding-top:27px;padding-bottom:55px}
+.menu-search-wide{width:100%;height:36px;margin:0 0 20px;padding:0 8px 0 12px;border-radius:7px}
+.menu-search-wide span{font-size:18px;color:#334b6e}
+.menu-search-wide input{font-size:10px;padding-left:8px}
+.menu-search-wide button{height:27px;border:0;border-radius:6px;background:#ff690b;color:#fff;font-size:10px;font-weight:700;padding:0 17px}
+.menu-layout{grid-template-columns:125px minmax(0,1fr);gap:14px}
+.category-box{padding:9px 6px;border-color:#e5eaf0;border-radius:7px}
+.category-box h2{font-size:12px;color:#263b5c;margin:3px 6px 10px}
+.category-box button{display:flex;align-items:center;gap:9px;padding:8px 6px;font-size:10px;color:#344258}
+.menu-page .category-box button{min-height:35px}
+.category-box button span{display:inline-grid;place-items:center;width:17px;font-size:16px;line-height:1;color:#345077}
+.category-box button.cat-active{background:#fff0e7;color:#ed5d06;font-weight:600}
+.category-box button.cat-active span{color:#ff690b}
+.menu-toolbar{margin:1px 0 10px;align-items:center}
+.menu-toolbar h2{font-size:17px;color:#263b5c;margin:0}
+.menu-toolbar-actions{display:flex;align-items:center;gap:12px}
+.menu-toolbar-actions>a{font-size:10px;color:#ff690b;white-space:nowrap}
+.sort-area{gap:5px;font-size:10px}
+.menu-toolbar select{padding:4px 5px;font-size:10px;color:#344258}
+.menu-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.dish-card-menu .dish-image{height:91px}
+.dish-card-menu .dish-image .heart{width:22px;height:22px;min-width:22px;min-height:22px;right:5px;top:5px;font-size:12px}
+.dish-card-menu .dish-info{padding:7px 8px 0}
+.dish-card-menu .dish-title strong{font-size:9px}
+.dish-card-menu .dish-description{font-size:9px}
+.dish-card-menu .dish-bottom{margin:7px 8px 9px}
+.dish-card-menu .dish-bottom>strong{font-size:9px}
+.dish-card-menu .dish-bottom button{font-size:8px;padding:6px 7px}
+.dish-card-menu .dish-bottom button,.dish-card-favorites .dish-bottom button{min-height:27px}
+.menu-pagination{display:flex;align-items:center;justify-content:center;gap:42px;margin-top:31px}
+.menu-pagination>button,.menu-pagination>span>button{height:27px;min-width:31px;border:1px solid #dfe4ea;border-radius:6px;background:#fff;color:#30405a;font-size:9px;padding:0 10px}
+.menu-page .menu-pagination button{min-height:27px}
+.menu-pagination>span{display:flex;gap:7px}
+.menu-pagination>span>button.current{background:#ff690b;border-color:#ff690b;color:#fff}
+.menu-pagination button:disabled{opacity:.45;cursor:not-allowed}
+html[data-theme='dark']{color-scheme:dark}
+html[data-theme='dark'] body{background:#111923;color:#e8edf3}
+html[data-theme='dark'] .header,html[data-theme='dark'] .mobile-nav{background:#151f2c;border-color:#293748}
+html[data-theme='dark'] .logo{color:#edf2f8}
+html[data-theme='dark'] .desktop-nav a{color:#c1cad6}
+html[data-theme='dark'] .desktop-nav a.active{color:#ff8b3c;border-bottom-color:#ff8b3c}
+html[data-theme='dark'] .theme-toggle{background:#202c3b;border-color:#35465c;color:#e7edf5}
+html[data-theme='dark'] .auth-button{background:#ff690b;border-color:#ff690b;color:#fff}
+html[data-theme='dark'] .hero{background:#131b24}
+html[data-theme='dark'] .home-section,html[data-theme='dark'] .page-wrap{color:#e8edf3}
+html[data-theme='dark'] .craving,html[data-theme='dark'] .section-heading h2,html[data-theme='dark'] .favorites-page .page-title h1,html[data-theme='dark'] .menu-toolbar h2{color:#edf2f8}
+html[data-theme='dark'] .chips button,html[data-theme='dark'] .dish-card,html[data-theme='dark'] .category-box,html[data-theme='dark'] .menu-search,html[data-theme='dark'] .menu-toolbar select,html[data-theme='dark'] .empty,html[data-theme='dark'] .detail,html[data-theme='dark'] .cart-list,html[data-theme='dark'] .summary-card,html[data-theme='dark'] .checkout-form,html[data-theme='dark'] .checkout-note,html[data-theme='dark'] .order-card,html[data-theme='dark'] .confirmation-card{background:#192432;border-color:#2b394a;color:#e8edf3}
+html[data-theme='dark'] .chips button{color:#d4dde8}
+html[data-theme='dark'] .chips button.selected,html[data-theme='dark'] .category-box button.cat-active{background:#4a2a18;border-color:#75401d;color:#ff9a50}
+html[data-theme='dark'] .dish-card-home .dish-title strong,html[data-theme='dark'] .dish-card-menu .dish-title strong,html[data-theme='dark'] .dish-card-favorites .dish-title strong,html[data-theme='dark'] .dish-card-home .dish-bottom>strong,html[data-theme='dark'] .dish-card-menu .dish-bottom>strong,html[data-theme='dark'] .dish-card-favorites .dish-bottom>strong{color:#e8edf3}
+html[data-theme='dark'] .dish-card-home .dish-bottom>a,html[data-theme='dark'] .dish-card-menu .dish-description,html[data-theme='dark'] .dish-card-home .dish-description,html[data-theme='dark'] .page-title>p:not(.eyebrow),html[data-theme='dark'] .muted,html[data-theme='dark'] .category-box button,html[data-theme='dark'] .category-box button span{color:#aab8c8}
+html[data-theme='dark'] .menu-search-wide input,html[data-theme='dark'] .menu-toolbar select{background:#192432;color:#e8edf3}
+html[data-theme='dark'] .menu-toolbar-actions>a{color:#ff9850}
+html[data-theme='dark'] .category-box h2{color:#edf2f8}
+html[data-theme='dark'] .menu-pagination>button,html[data-theme='dark'] .menu-pagination>span>button{background:#192432;border-color:#36465a;color:#e8edf3}
+html[data-theme='dark'] .menu-pagination>span>button.current{background:#ff690b;border-color:#ff690b;color:#fff}
+html[data-theme='dark'] .menu-search-wide button{background:#ff690b;color:#fff}
+html[data-theme='dark'] .empty h2,html[data-theme='dark'] .detail-copy h1,html[data-theme='dark'] .summary-card h2,html[data-theme='dark'] .section-title-row h1{color:#edf2f8}
+html[data-theme='dark'] .cart-row,html[data-theme='dark'] .summary-total,html[data-theme='dark'] .summary-line,html[data-theme='dark'] .checkout-item,html[data-theme='dark'] .order-head,html[data-theme='dark'] .order-foot,html[data-theme='dark'] .confirmation-details{border-color:#2b394a}
+html[data-theme='dark'] .cart-copy span,html[data-theme='dark'] .summary-line,html[data-theme='dark'] .detail-copy p{color:#aab8c8}
+html[data-theme='dark'] .cart-copy strong,html[data-theme='dark'] .summary-total,html[data-theme='dark'] .checkout-item b,html[data-theme='dark'] .order-total strong{color:#e8edf3}
+html[data-theme='dark'] input,html[data-theme='dark'] textarea,html[data-theme='dark'] select{color-scheme:dark}
+@media(max-width:850px){
+  .desktop-nav{gap:17px;margin-right:18px}
+  .header-inner{width:94%}
+  .footer-inner{width:92%;gap:28px}
+  .hero-content{gap:20px}
+  .hero-copy-block{max-width:54%}
+  .hero h1{font-size:36px}
+  .footer-inner{gap:28px}
+}
+@media(max-width:600px){
+  .header-inner{width:90%}
+  .desktop-nav{display:none}
+  .header .mobile-menu{display:inline-flex}
+  .mobile-nav{display:block}
+  .header-actions .theme-toggle{display:none}
+  .hero{height:390px}
+  .hero-content{align-items:flex-start;justify-content:center;flex-direction:column;gap:20px;padding-top:0}
+  .hero-copy-block{max-width:100%}
+  .hero h1{font-size:38px}
+  .hero-copy{font-size:12px}
+  .desktop-break{display:none}
+  .search-box{width:100%}
+  .home-section{padding-top:17px;padding-bottom:26px}
+  .home-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .dish-image{height:120px}
+  .favorites-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .menu-page{padding-top:20px}
+  .menu-layout{grid-template-columns:1fr}
+  .category-box{display:flex;align-items:center;overflow-x:auto;gap:4px}
+  .category-box h2{display:none}
+  .category-box button{white-space:nowrap;width:auto}
+  .menu-page .category-box button{min-height:44px}
+  .menu-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dish-card-menu .dish-image{height:120px}
+  .menu-toolbar-actions{gap:7px}
+  .sort-area{font-size:9px}
+  .menu-pagination{gap:12px;margin-top:22px}
+}

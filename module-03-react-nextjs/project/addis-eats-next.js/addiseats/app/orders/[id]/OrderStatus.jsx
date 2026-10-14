@@ -34,7 +34,7 @@ export default function OrderStatus({ initialOrder }) {
         <h2>Order details</h2>
         <div className="tracking-items">{order.items.map((item) => <div className="tracking-item" key={item.id}><span>{item.qty} × {item.name}</span><strong>{etb(item.price * item.qty)}</strong></div>)}</div>
         <div className="tracking-total"><span>Total</span><strong>{etb(order.total)}</strong></div>
-        <p className="order-updated">Delivering to {order.address}{order.neighborhood ? ` · ${order.neighborhood}` : ''}</p><p className="order-updated">Order placed {when(order.createdAt || order.date)}</p>
+        <p className="order-updated">Delivering to {order.neighborhood || 'the selected delivery area'}</p><p className="order-updated">Order placed {when(order.createdAt || order.date)}</p>
       </section>
     </div>
   </div>

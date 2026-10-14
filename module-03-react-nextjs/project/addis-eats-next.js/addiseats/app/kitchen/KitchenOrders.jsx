@@ -1,11 +1,12 @@
 'use client'
 
 import { useEffect, useState, useTransition } from 'react'
-import { getOrderStatus, ORDER_STATUSES } from '../../lib/order-statuses'
+import { getOrderStatus } from '../../lib/order-statuses'
 import { updateOrderStatus } from '../actions'
 import { etb, when } from '../../lib/format'
 
-export default function KitchenOrders({ orders }) {
+export default function KitchenOrders({ orders: initialOrders }) {
+  const [orders, setOrders] = useState(initialOrders)
   const [pendingOrder, setPendingOrder] = useState('')
   const [error, setError] = useState('')
   const [isPending, startTransition] = useTransition()
@@ -16,7 +17,15 @@ export default function KitchenOrders({ orders }) {
     startTransition(async () => {
       try {
         const result = await updateOrderStatus(orderId, status)
-        setError(result.error || '')
+        if (result.error) {
+          setError(result.error)
+          return
+        }
+        if (!result.order) {
+          setError('The server did not return the updated order. Please refresh and try again.')
+          return
+        }
+        setOrders((currentOrders) => currentOrders.map((order) => order.id === result.order.id ? result.order : order))
       } catch {
         setError('The order status could not be updated. Please try again.')
       } finally {
@@ -37,17 +46,16 @@ export default function KitchenOrders({ orders }) {
         <strong>{etb(order.total)}</strong>
       </div>
       <p>{order.items.map((item) => `${item.qty} × ${item.name}`).join(', ')}</p>
-      <p className="order-updated">{order.name} · {order.phone} · {order.neighborhood || 'Neighbourhood not provided'} · {order.address}</p>
-      <label>Update status
-        <select
-          value={status}
-          disabled={(isPending && pendingOrder === order.id) || ['Delivered', 'Cancelled'].includes(status)}
-          onChange={(event) => changeStatus(order.id, event.target.value)}
-          aria-label={`Update status for order ${order.id}`}
-        >
-          {ORDER_STATUSES.map((status) => <option value={status} key={status}>{status}</option>)}
-        </select>
-      </label>
+      <p className="order-updated">{[order.name, order.phone, order.neighborhood || 'Neighbourhood not provided', order.address].filter(Boolean).join(' · ')}</p>
+      {!['Delivered', 'Cancelled'].includes(status) && <button
+        className="checkout-button"
+        type="button"
+        disabled={isPending && pendingOrder === order.id}
+        onClick={() => changeStatus(order.id, 'Cancelled')}
+        aria-label={`Cancel order ${order.id}`}
+      >
+        {isPending && pendingOrder === order.id ? 'Cancelling…' : 'Cancel order'}
+      </button>}
     </section>
     })}
   </>

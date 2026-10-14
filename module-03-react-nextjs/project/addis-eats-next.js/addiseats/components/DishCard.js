@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
-export default function DishCard({ dish, priority = false, sizes = '(max-width: 850px) 44vw, (max-width: 1420px) 22vw, 340px' }) {
+export default function DishCard({ dish, priority = false, variant = 'default', sizes = '(max-width: 850px) 44vw, (max-width: 1420px) 22vw, 340px' }) {
   const [favorite, setFavorite] = useState(false)
   const [announcement, setAnnouncement] = useState('')
 
@@ -57,20 +57,28 @@ export default function DishCard({ dish, priority = false, sizes = '(max-width: 
     }
   }
 
+  const categoryLabel = {
+    ethiopian: 'Ethiopian',
+    pizza: 'Pizza',
+    burgers: 'Burgers',
+    sides: 'Sides',
+    drinks: 'Drinks',
+  }[dish.category] || dish.category
+
   return (
-    <article className="dish-card">
+    <article className={`dish-card dish-card-${variant}`}>
       <div className="dish-image">
         <Link href={`/menu/${dish.id}`} aria-label={`View ${dish.name}`}>
           <Image src={dish.image} alt={dish.imageAlt || dish.name} width={dish.image.width} height={dish.image.height} quality={65} sizes={sizes} priority={priority}/>
         </Link>
-        {dish.tag && <span className="dish-tag">{dish.tag}</span>}
-        <button type="button" className={`heart ${favorite ? 'liked' : ''}`} onClick={toggleFavorite} aria-label={favorite ? `Remove ${dish.name} from favorites` : `Add ${dish.name} to favorites`} aria-pressed={favorite}>{favorite ? '♥' : '♡'}</button>
+        {variant === 'default' && dish.tag && <span className="dish-tag">{dish.tag}</span>}
+        <button type="button" className={`heart ${favorite ? 'liked' : ''}`} onClick={toggleFavorite} aria-label={favorite ? `Remove ${dish.name} from favorites` : `Add ${dish.name} to favorites`} aria-pressed={favorite}>{favorite ? ' 🖤' : '🤍'}</button>
       </div>
       <Link href={`/menu/${dish.id}`} className="dish-info">
-        <div className="dish-title"><strong>{dish.name}</strong><span>4.8 ★</span></div>
-        <div className="dish-description">{dish.description}</div>
+        <div className="dish-title"><strong>{dish.name}</strong>{variant === 'default' && <span>4.8 ★</span>}</div>
+        {variant === 'home' || variant === 'menu' ? <div className="dish-description">{categoryLabel}</div> : variant === 'default' ? <div className="dish-description">{dish.description}</div> : null}
       </Link>
-      <div className="dish-bottom"><strong>{dish.price.toLocaleString()} ETB</strong><button type="button" onClick={addToCart}>Add to Cart</button></div>
+      <div className="dish-bottom"><strong>{dish.price.toLocaleString()} ETB</strong>{variant === 'home' ? <Link href={`/menu/${dish.id}`}>View dish</Link> : <button type="button" onClick={addToCart}>Add to Cart</button>}</div>
       <span className="sr-only" role="status" aria-live="polite">{announcement}</span>
     </article>
   )

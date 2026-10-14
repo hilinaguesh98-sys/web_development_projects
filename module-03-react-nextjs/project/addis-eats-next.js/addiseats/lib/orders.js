@@ -25,7 +25,6 @@ export function createOrder(payload, idempotencyKey) {
   const requestSignature = JSON.stringify({
     name: payload.name,
     phone: payload.phone,
-    address: payload.address,
     neighborhood: payload.neighborhood,
     items: payload.items.map(({ id, qty }) => ({ id, qty })),
   })
@@ -58,7 +57,7 @@ export function createOrder(payload, idempotencyKey) {
     userId: payload.userId,
     name: payload.name,
     phone: payload.phone,
-    address: payload.address,
+    address: payload.address || '',
     neighborhood: String(payload.neighborhood || 'Not provided').trim() || 'Not provided',
     originCoordinates: payload.originCoordinates || null,
     deliveryCoordinates: payload.deliveryCoordinates || getDeliveryLocation(payload.neighborhood) || null,
@@ -147,7 +146,7 @@ export function getOrders() {
 }
 
 export function updateOrderStatus(id, status) {
-  if (!ORDER_STATUSES.includes(status)) return null
+  if (status !== 'Cancelled') return null
   const storedOrder = store.get(id)
   const order = storedOrder ? advanceOrderProgress(storedOrder) : null
   if (!order) return null

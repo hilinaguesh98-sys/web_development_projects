@@ -24,7 +24,11 @@ function CountTooltip({ active, payload, label }) {
 }
 
 export default function RevenueChart({ revenueData, dailyData }) {
-  const revenueWidth = Math.max(100, ...revenueData.map((row) => row.neighborhood.length * 8 + 45))
+  const revenueWidth = Math.max(
+    720,
+    revenueData.length * 180,
+    ...revenueData.map((row) => row.neighborhood.length * 8 + 160)
+  )
 
   return <div className="dashboard-charts">
     <section className="dashboard-chart-panel" aria-labelledby="revenue-chart-heading">
@@ -35,14 +39,14 @@ export default function RevenueChart({ revenueData, dailyData }) {
       {revenueData.length
         ? <>
           <div className="chart-canvas chart-horizontal-scroll" role="img" aria-label="Bar chart of Ethiopian birr revenue grouped by neighbourhood. A data table follows.">
-            <div className="chart-min-width" style={{ minWidth: `${revenueWidth}px` }}>
+            <div className="chart-min-width" style={{ width: `max(100%, ${revenueWidth}px)` }}>
               <ResponsiveContainer width="100%" height={360}>
                 <BarChart data={revenueData} margin={{ top: 12, right: 20, left: 12, bottom: 90 }} accessibilityLayer>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                  <XAxis dataKey="neighborhood" angle={-38} textAnchor="end" interval={0} height={105} tick={{ fontSize: 12 }} />
+                  <XAxis dataKey="neighborhood" type="category" scale="band" angle={-38} textAnchor="end" interval={0} height={105} tick={{ fontSize: 12 }} />
                   <YAxis width={112} tickFormatter={(value) => etb(value)} />
                   <Tooltip content={<MoneyTooltip />} />
-                  <Bar dataKey="revenue" name="Revenue" fill="#f47d16" radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="revenue" name="Revenue" fill="#f47d16" barSize={48} radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>

@@ -140,7 +140,7 @@ export default function TrackingClient({ initialOrder }) {
         />
         {courierLocation
           ? <p className="delivery-map-note">Last verified courier GPS: {courierLocation.latitude}, {courierLocation.longitude} · {when(courierLocation.updatedAt)} (EAT).</p>
-          : <p className="delivery-map-note">The moving courier pin and straight route are a demo simulation between approximate area centres, not live GPS or turn-by-turn directions. Preparing lasts 7 seconds; the route simulation then runs for 7 seconds before delivery.</p>}
+          : <p className="delivery-map-note">The moving courier pin follows a demo route between approximate area centres; this is not live GPS. Preparing lasts 7 seconds; the route simulation then runs for 7 seconds before delivery.</p>}
       </section>
       <aside className="delivery-address-panel" aria-labelledby="delivery-address-heading">
         <h2 id="delivery-address-heading">Delivery information</h2>
@@ -148,7 +148,7 @@ export default function TrackingClient({ initialOrder }) {
           <div><dt>Recipient</dt><dd>{initialOrder.name}</dd></div>
           <div><dt>Phone</dt><dd>{initialOrder.phone}</dd></div>
           <div><dt>Neighbourhood</dt><dd>{initialOrder.neighborhood || 'Not provided'}</dd></div>
-          <div><dt>Delivery address</dt><dd>{initialOrder.address}</dd></div>
+          {initialOrder.address && <div><dt>Delivery address</dt><dd>{initialOrder.address}</dd></div>}
           <div><dt>Order placed</dt><dd>{when(initialOrder.createdAt || initialOrder.date)} (EAT)</dd></div>
           <div><dt>Route</dt><dd>{initialOrder.originCoordinates?.name || DELIVERY_ORIGIN.name} → {initialOrder.neighborhood || 'Delivery area'}</dd></div>
           <div><dt>Courier location</dt><dd>{courierLocation ? `Last verified at ${when(courierLocation.updatedAt)} (EAT)` : status === 'Delivered' ? 'Reached the selected delivery area (demo route).' : 'Simulated route position; live courier GPS is not connected.'}</dd></div>
