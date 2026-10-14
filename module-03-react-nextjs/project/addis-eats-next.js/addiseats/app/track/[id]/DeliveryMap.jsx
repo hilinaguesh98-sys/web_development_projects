@@ -9,14 +9,14 @@ import { DELIVERY_ORIGIN, DELIVERY_TRANSIT_DURATION_MS, getDeliveryLocation } fr
 
 const courierIcon = L.divIcon({
   className: 'delivery-map-icon',
-  html: '<span aria-hidden="true" style="display:grid;place-items:center;width:36px;height:36px;background:#172033;color:white;border:3px solid white;border-radius:50%;box-shadow:0 2px 8px #0004;font-size:18px">●</span>',
+  html: '<span aria-hidden="true" style="display:grid;place-items:center;width:36px;height:36px;background:#172033;color:white;border:3px solid white;border-radius:50%;box-shadow:0 2px 8px #0004;font-size:18px">🛻</span>',
   iconSize: [36, 36],
   iconAnchor: [18, 18],
 })
 
 const deliveryIcon = L.divIcon({
   className: 'delivery-map-icon',
-  html: '<span aria-hidden="true" style="display:grid;place-items:center;width:36px;height:36px;background:#f47d16;color:white;border:3px solid white;border-radius:50%;box-shadow:0 2px 8px #0004;font-size:18px">⌂</span>',
+  html: '<span aria-hidden="true" style="display:grid;place-items:center;width:36px;height:36px;background:#f47d16;color:white;border:3px solid white;border-radius:50%;box-shadow:0 2px 8px #0004;font-size:18px">🏠</span>',
   iconSize: [36, 36],
   iconAnchor: [18, 18],
 })
@@ -171,7 +171,7 @@ export default function DeliveryMap({
     ? [Number(courierLocation.latitude), Number(courierLocation.longitude)]
     : simulatedCourier
   const markerPosition = markerLocation
-  const markerTitle = isValidCoordinates(courierLocation) ? 'Last verified courier location' : 'Simulated courier position'
+  const markerTitle = isValidCoordinates(courierLocation) ? 'Last verified courier location' : 'Delivery'
 
   return <div className="delivery-map-frame" role="group" aria-label="Interactive map showing the dispatch point, road route, and delivery area">
     <MapContainer center={endpointPositions[0]} zoom={13} scrollWheelZoom style={{ height: '360px', width: '100%' }}>
